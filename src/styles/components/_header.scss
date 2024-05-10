@@ -1,0 +1,9 @@
+@use '../base/settings' as *;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: $background-color;
+}
