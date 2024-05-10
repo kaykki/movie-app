@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { appTitle } from "../global/global";
+import MovieCard from "../components/MovieCard";
 
 const PageHome = () => {
 
@@ -29,10 +30,7 @@ const PageHome = () => {
 
                 <div>
                     {movie.map( movie => (
-                        <div key={movie.id}>
-                            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}/>
-                            <h3>{movie.title}</h3>
-                        </div>
+                        <MovieCard title={movie.title} img={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} />
                     ) )}
                 </div>
             </section>
