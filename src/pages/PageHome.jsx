@@ -1,41 +1,107 @@
-import { useEffect, useState } from "react"
+import React from 'react'
+import { useState, useEffect } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import MovieCard from '../components/MovieCard';
+import isFav from '../utilities/isFav';
+import { useSelector } from 'react-redux';
 import { appTitle } from "../global/global";
-import MovieCard from "../components/MovieCard";
+
 
 const PageHome = () => {
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
-    const [movie, setMovie] = useState([]);
+  const favs = useSelector((state) => state.favs.items);
 
-    useEffect(() => {
-        document.title = appTitle;
-        const fetchNowPlaying = async () => {
-            const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', {
-                headers: {
-                    accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjkzZTM0ZGNiZjg1NGEyZGMxYzE1ZDlkNDk2ODA2MSIsInN1YiI6IjY2MzUyN2QzMzU4ZGE3MDEyYTU1NjMzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WAbBbeAHgieYj7ZUUoUsFfA5cUTRs3ayB3NKYkhQxFM'
-                }
-            });
+  useEffect(() => {
+    document.title = "About | " + appTitle;
+    fetchMovies('now_playing', setNowPlayingMovies);
+  }, []);
 
-            let data = await response.json();
+  const fetchMovies = async (category, setter) => {
+    const apiKey = '2e0de9d682ff6404a82153a83be192cf';
+    const url = `https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&language=en-US&page=1`;
 
-            setMovie(data.results);
-        }
-        fetchNowPlaying();
-    }, [])
+    
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+      }
+    };
+    try {
+      const response = await fetch(url, options);
+      const { results } = await response.json();
+      setter(results.slice(0, 20));
+      console.log(results)
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  };
 
-    return (
-        <main>
-            <section>
-                <h2>Now Playing</h2>
+  const changeTab = (category, setter) => {
+    fetchMovies(category, setter);
+  };
 
-                <div>
-                    {movie.map( movie => (
-                        <MovieCard title={movie.title} img={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} />
-                    ) )}
-                </div>
-            </section>
-        </main>
-    )
-}
+  return (
+    <div>
+      <Tabs>
+        <TabList className="tab-nav">
+          <Tab className="tab">Now Playing</Tab>
+          <Tab className="tab" onClick={() => changeTab('upcoming', setUpcomingMovies)}>Upcoming</Tab>
+          <Tab className="tab" onClick={() => changeTab('top_rated', setTopRatedMovies)}>Top Rated</Tab>
+          <Tab className="tab" onClick={() => changeTab('popular', setPopularMovies)}>Popular</Tab>
+        </TabList>
+        <TabPanel>
+          <div className="movie-container">
+            {nowPlayingMovies.map(movie => {
+              return <MovieCard
+              key={movie.id}
+              movie={movie}
+              isFav={isFav(favs, null, movie.id)}
+              />
+            })}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="movie-container">
+            {upcomingMovies.map(movie => {
+              return <MovieCard
+              key={movie.id}
+              movie={movie}
+              isFav={isFav(favs, null, movie.id)}
+           />
+          })}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="movie-container">
+            {topRatedMovies.map(movie => {
+              return <MovieCard
+              key={movie.id}
+              movie={movie}
+              isFav={isFav(favs, null, movie.id)}
+           />
+          })}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="movie-container">
+            {popularMovies.map(movie => {
+              return <MovieCard
+              key={movie.id}
+              movie={movie}
+              isFav={isFav(favs, null, movie.id)}
+           />
+          })}
+          </div>
+        </TabPanel>
+      </Tabs>
+    </div>
+  );
+};
 
-export default PageHome
+export default PageHome;

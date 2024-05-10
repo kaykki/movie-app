@@ -1,30 +1,30 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 // Pages
-import PageHome        from '../pages/PageHome'
-import PageFavourites  from '../pages/PageFavourites'
-import PageAbout       from '../pages/PageAbout'
-import PageSingleMovie from '../pages/PageSingleMovie'
-import PageNotFound    from '../pages/PageNotFound'
-import Footer          from '../components/Footer'
-import Header          from '../components/Header'
+import PageHome from '../pages/PageHome';
+import PageAbout from '../pages/PageAbout';
+import PageFavourites from '../pages/PageFavourites';
+import PageNotFound from '../pages/PageNotFound';
+import PageMovieInfo from '../pages/PageMovieInfo';
 
 function AppRouter() {
   return (
     <BrowserRouter>
+      <div className="wrapper">
         <Header />
-        <main>
-            <Routes>
-                <Route path="/" element={<PageHome />} />
-                <Route path="/favourites" element={<PageFavourites />} />
-                <Route path="/about" element={<PageAbout />} />
-                <Route path="/movie" element={<PageSingleMovie />} />
-                <Route path="*" element={<PageNotFound />} />
-            </Routes>
-        </main>
+          <Routes>
+            <Route path="/" exact element={<PageHome />} />
+            <Route path="/about" element={<PageAbout />} />
+            <Route path="/favourites" element={<PageFavourites />} />
+            <Route path="/movieinfo/:id" element={<PageMovieInfo />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         <Footer />
+      </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default AppRouter
+export default AppRouter;
