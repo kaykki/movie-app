@@ -1,5 +1,112 @@
-.nav-links {
-    display: flex;
-    gap: 1rem;
+@use '../base/settings' as *;
+
+.btn-main-nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    @media(min-width: 65em){
+        display: none;
+    }
+  
+    .line {
+      width: 50px;
+      height: 5px;
+      background-color: $primary-color;
+      display: block;
+      margin: 10px auto;
+      border-radius: 15px;
+      
+    }
+  }
+
+  .main-nav {
+
+    width: 100%;
+    background-color: $background-color;
+    height: 0;
     padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+          padding: .5rem;
+          text-align: center;
+        } 
+    }
+
+    a {
+        color: $primary-color;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    &:hover{
+        text-decoration: underline;
+    }
+    }
+
+    .x-icon {
+        display: none;
+        position: relative;
+        width: 40px;
+        height: 40px;
+
+        .x-line {
+            position: absolute;
+            width: 100%;
+            height: 5px; 
+            background-color: $primary-color;
+          }
+          
+          .x-line:first-child {
+            transform: rotate(45deg);
+          }
+          
+          .x-line:last-child {
+            transform: rotate(-45deg);
+          }
+      }
+
+
+
+    @media (min-width: 65rem) {
+      width: auto;
+      transition: none;
+      visibility: visible;
+      overflow: visible;
+      &.show{
+        transition: none;
+      height: auto;
+      }
+      ul{
+        display: flex;
+      justify-content: flex-end;
+      }
+    }
+
+  }
+
+  .show .main-nav   {
+    visibility: visible;
+    height: 180px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    transition: visibility 0s, height 0.3s;
+    @media(min-width: 65em){
+        transition: none;
+      height: auto;
+    }
 }
+
+  .show .x-icon {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 2rem;
+    right: 3rem;
+  } 
+
