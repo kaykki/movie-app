@@ -12,7 +12,7 @@ const Header = () => {
     }
 
     const isDesktop = (e) => {
-        if(e.matches){
+        if (e.matches) {
             setShowNav(false);
         }
     }
@@ -21,19 +21,19 @@ const Header = () => {
         let mediaQuery = window.matchMedia('(min-width: 1040px)');
         mediaQuery.addEventListener('change', isDesktop);
 
-        return() => mediaQuery.removeEventListener('change', isDesktop);
+        return () => mediaQuery.removeEventListener('change', isDesktop);
     }, []);
 
 
-  return (
-    <header className={showNav ? 'show' : ''}>
+    return (
+        <header className={showNav ? 'show' : ''}>
             <h1><Link className="logo" to="/">{appTitle}</Link></h1>
             <div className="search-container">
-            <input type="text" className="search-input" placeholder="Search"/>
-            <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
+                <input type="text" className="search-input" placeholder="Search" />
+                <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
             </div>
             <button className="btn-main-nav"
-                    onClick={toggleNav}>
+                onClick={toggleNav}>
                 <span className="hamburger-icon">
                     <span className="line"></span>
                     <span className="line"></span>
@@ -42,7 +42,7 @@ const Header = () => {
             </button>
             <Nav handleShowHideNav={toggleNav} />
         </header>
-  )
+    )
 }
 
 export default Header

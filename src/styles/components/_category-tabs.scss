@@ -1,0 +1,17 @@
+@use '../base/settings' as *;
+
+.tab-nav {
+    display: flex;
+    color: $primary-color;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    gap: 8.125rem;
+    height: 11.6875rem;
+    margin: 0;
+    padding: 0;
+}
+
+.tab {
+    cursor: pointer;
+}
