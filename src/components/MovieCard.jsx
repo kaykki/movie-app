@@ -18,11 +18,7 @@ function MovieCard({ movie, isFav }) {
             dispatch(deleteFav(obj));
         }
     }
-
-    if (isHovered) {
-
-    }
-
+    
     return (
         <div key={movie.id} className="movie-card">
             <div className='movie-poster' 

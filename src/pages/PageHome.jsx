@@ -24,7 +24,6 @@ const PageHome = () => {
 		const apiKey = '2e0de9d682ff6404a82153a83be192cf';
 		const url = `https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&language=en-US&page=1`;
 
-
 		const options = {
 			method: 'GET',
 			headers: {
