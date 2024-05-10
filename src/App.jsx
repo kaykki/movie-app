@@ -1,8 +1,6 @@
-import './App.css'
 import AppRouter from './routers/AppRouter'
 
 function App() {
-
 
   return (
     <>

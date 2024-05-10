@@ -1,0 +1,12 @@
+//base
+@use 'base/normalize';
+@use 'base/settings';
+@use 'base/typography';
+
+//components
+@use 'components/nav';
+
+//utilities
+
+// Google Font - Import
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
