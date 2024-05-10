@@ -16,7 +16,7 @@ const PageHome = () => {
   const favs = useSelector((state) => state.favs.items);
 
   useEffect(() => {
-    document.title = "About | " + appTitle;
+    document.title = "Home | " + appTitle;
     fetchMovies('now_playing', setNowPlayingMovies);
   }, []);
 
@@ -48,6 +48,7 @@ const PageHome = () => {
 
   return (
     <div>
+
       <Tabs>
         <TabList className="tab-nav">
           <Tab className="tab">Now Playing</Tab>
