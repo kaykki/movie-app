@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { appTitle } from '../global/global';
 
 function PageFavourites() {
+
+    useEffect(() => {
+		document.title = "Favourites | " + appTitle;
+	}, [])
 
     const favs = useSelector((state) => state.favs.items);
 
