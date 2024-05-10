@@ -26,14 +26,14 @@ function MovieCard({ movie, isFav }) {
                  onMouseLeave={() => setIsHovered(false)}>
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-image" />
                 {isHovered ? (
-                    <div className='hover-movie' style={{ display: 'block' }}>
+                    <div className='hover-movie' style={{ opacity: 1 }}>
                         <p>{movie.overview.slice(0, 100)}...</p>
-                        <Link to={`/movieinfo/${movie.id}`}>More Info</Link>
+                        <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
                     </div>
                 ) :
-                    <div className='hover-movie' style={{ display:'none' }}>
+                    <div className='hover-movie' style={{ opacity: 0 }}>
                         <p>{movie.overview.slice(0, 200)}...</p>
-                        <Link to={`/movieinfo/${movie.id}`}>More Info</Link>
+                        <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
                     </div>
                 }
             </div>
