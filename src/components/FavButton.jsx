@@ -10,9 +10,11 @@ function FavButton({ movie, remove, handleFavClick }) {
 
     return (
         <>
-            {remove === true ? 
-            <button className="btn-favourite" onClick={handleRemoveFav}><i className="fas fa-heart"></i></button> :
-            <button className="btn-favourite" onClick={handleAddFav}><i className="far fa-heart"></i></button>} 
+            {remove === true 
+            ? 
+                <button className="btn-favourite" onClick={handleRemoveFav}><i className="fas fa-heart"></i></button>
+            :
+                <button className="btn-favourite" onClick={handleAddFav}><i className="far fa-heart"></i></button>} 
         </>
     );
     
