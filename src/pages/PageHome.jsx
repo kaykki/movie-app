@@ -35,7 +35,6 @@ const PageHome = () => {
 			const response = await fetch(url, options);
 			const { results } = await response.json();
 			setter(results.slice(0, 21));
-			console.log(results)
 		} catch (error) {
 			console.error('Error fetching data: ', error);
 		}
