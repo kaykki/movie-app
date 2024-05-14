@@ -1,3 +1,2 @@
-export const authors = "Kaki Kagatan, Danny Kim, Yasin Colak, Kyle Thomson";
-export const categories = ['Now Playing', 'Upcoming', 'Top Rated', 'Popular'];
+export const authors = "Kaki, Danny, Yasin, Kyle";
 export const appTitle = "Seenema";
