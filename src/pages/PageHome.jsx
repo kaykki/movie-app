@@ -27,8 +27,15 @@ const PageHome = () => {
 	
 			let data = await response.json();
 	
+			console.log(data);
+
 			if(loadMore) {
-				setMovieList([...movieList, ...data.results]);
+				// data.results.map((movie) => {
+				// 	setMovieList(...movieList, movie);
+				// })
+
+				setMovieList(movieList => ([...movieList, ...data.results]));
+				console.log(movieList);
 				setLoadMore(false);
 			} else {
 				setMovieList(data.results.slice(0, 18));
@@ -39,7 +46,7 @@ const PageHome = () => {
 	}, [currentCategory, loadMore]);
 
 	// Chaning tabs 
-	const changeTab = (category) => {
+	const changeCategories = (category) => {
 		setCurrentPage(1);
 		if (category.category == 'Now Playing') {
 			setCurrentCategory('now_playing');
@@ -61,10 +68,11 @@ const PageHome = () => {
 		<>
 			<nav className="tab-nav">
 				<ul>
-					{categories.map(category => (
-						<li key={category} 
+					{Object.keys(categories).map((category, i) => (
+						<li key={i} 
+							style={i == currentCategory ? {color: 'red'} : {color: 'blue'}}
 							className="tab" 
-							onClick={() => changeTab({ category })}>
+							onClick={() => {changeCategories({ category })}}>
 							{category}
 						</li>
 					))}
