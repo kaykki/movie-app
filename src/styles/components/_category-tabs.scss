@@ -1,6 +1,6 @@
 @use '../base/settings' as *;
 
-.tab-nav {
+.tab-nav ul {
     display: flex;
     color: $primary-color;
     justify-content: center;

@@ -4,3 +4,11 @@
     justify-content: center;
     gap: 2rem;
 }
+
+.movies-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6.25rem;
+}
