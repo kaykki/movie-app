@@ -17,7 +17,7 @@ const PageHome = () => {
 		document.title = "Home | " + appTitle;
 		const fetchMovies = async (category) => {
 
-			const response = await fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${currentPage}`, {
+			const response = await fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`, {
 				headers: {
 					accept: 'application/json',
 					Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjkzZTM0ZGNiZjg1NGEyZGMxYzE1ZDlkNDk2ODA2MSIsInN1YiI6IjY2MzUyN2QzMzU4ZGE3MDEyYTU1NjMzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WAbBbeAHgieYj7ZUUoUsFfA5cUTRs3ayB3NKYkhQxFM'
@@ -34,7 +34,6 @@ const PageHome = () => {
 
 	// Chaning categories 
 	const changeCategories = (category) => {
-		setCurrentPage(1);
 		setCurrentCategory(category);
 	};
 
