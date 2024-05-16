@@ -23,7 +23,7 @@ function InfoCard({movie, isFav}) {
                 <img className='info-poster'src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
                     <div>
                     <h2 className='movie-info-title'>{movie.title}</h2>
-                    <p>{movie.release_date}</p>
+                    <p className='release-date'>{movie.release_date}</p>
                     <ul className='genre-list'>
                     {movie.genres.map(genre => (
                     <li key={genre.id}>{genre.name}</li>

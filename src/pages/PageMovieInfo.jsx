@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import MovieCard from '../components/MovieCard';
 import isFav from '../utilities/isFav';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { appTitle } from '../global/global';
-import FavButton from '../components/FavButton';
 import InfoCard from '../components/InfoCard';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 function MovieInfo() {
 
@@ -56,6 +57,28 @@ function MovieInfo() {
 
   }, []);
 
+  const settings = {
+    className: "center",
+    infinite: false,
+    centerPadding: "60px",
+    slidesToShow: 8,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 6
+        }
+      },
+      {
+        breakpoint: 1040,
+        settings: {
+          slidesToShow: 4
+        }
+      }
+    ]
+  };
+
   return (
     <div>
       {movie && movieCast ? (
@@ -65,21 +88,34 @@ function MovieInfo() {
         movie={movie}
         isFav={isFav(favs, null, movie.id)}
         />
-        <section>
+        <section className='cast'>
           <h2>Cast</h2>
-          {movieCast.cast.slice(0, 8).map(member => (
-            <div key={member.id}>
+          <div className='slider-container'>
+          <Slider {...settings}>
+          {movieCast.cast.slice(0, 10).map(member => (
+            <div className='cast-card' key={member.id}>
             <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
             <h3>{member.name}</h3>
             <p>{member.character}</p>
             </div>
           ))}
+          </Slider>
+          </div>
+          <div className='non-slider-container'>
+          {movieCast.cast.slice(0, 8).map(member => (
+            <div className='cast-card' key={member.id}>
+            <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
+            <h3>{member.name}</h3>
+            <p>{member.character}</p>
+            </div>
+          ))}
+          </div>
         </section>
         </div>
       ) : 
-      <div>
+
         <p>No movie to display.</p>
-      </div>
+
       }
     </div>
   )

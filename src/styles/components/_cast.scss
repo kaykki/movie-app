@@ -1,0 +1,37 @@
+@use '../base/settings' as *;
+.cast{
+    h2 {
+        width: 100%;
+        padding: 1rem;
+        @media(min-width: 43.75em){
+            font-size: 2rem;
+        }
+    }
+}
+
+.cast-card{
+    padding: .5rem;
+    margin: 0;
+    width: 10rem;
+    p {
+        color: $primary-color;
+    }
+    @media (min-width: 26.25em) {
+        width: 12.5rem;
+    }
+}
+
+.non-slider-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media (min-width: 43.75em) {
+        display: none;
+    }
+}
+.slider-container{
+    display: none;
+    @media (min-width: 43.75em) {
+        display: block;
+    }
+}
