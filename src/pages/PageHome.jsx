@@ -15,7 +15,6 @@ const PageHome = () => {
 
 	useEffect(() => {
 		document.title = "Home | " + appTitle;
-		setCurrentPage(1);
 		const fetchMovies = async (category) => {
 
 			const response = await fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${currentPage}`, {
@@ -35,6 +34,7 @@ const PageHome = () => {
 
 	// Chaning categories 
 	const changeCategories = (category) => {
+		setCurrentPage(1);
 		setCurrentCategory(category);
 	};
 
