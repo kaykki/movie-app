@@ -93,21 +93,21 @@ function MovieInfo() {
           <div className='slider-container'>
           <Slider {...settings}>
           {movieCast.cast.slice(0, 10).map(member => (
-            <div className='cast-card' key={member.id}>
+            <article className='cast-card' key={member.id}>
             <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
             <h3>{member.name}</h3>
             <p>{member.character}</p>
-            </div>
+            </article>
           ))}
           </Slider>
           </div>
           <div className='non-slider-container'>
           {movieCast.cast.slice(0, 8).map(member => (
-            <div className='cast-card' key={member.id}>
+            <article className='cast-card' key={member.id}>
             <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
             <h3>{member.name}</h3>
             <p>{member.character}</p>
-            </div>
+            </article>
           ))}
           </div>
         </section>
