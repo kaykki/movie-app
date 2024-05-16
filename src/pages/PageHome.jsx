@@ -32,11 +32,6 @@ const PageHome = () => {
 		fetchMovies(currentCategory);
 	}, [currentCategory]);
 
-	// Chaning categories 
-	const changeCategories = (category) => {
-		setCurrentCategory(category);
-	};
-
 	const loadMore = async () => {
 		const newPage = currentPage + 1;
 		setCurrentPage(newPage);
@@ -60,7 +55,7 @@ const PageHome = () => {
 						<li key={category.value} 
 							className="tab" 
 							style={category.value == currentCategory ? {listStyleType: 'disc'} : null}
-							onClick={() => {changeCategories( category.value )}}>
+							onClick={() => {setCurrentCategory( category.value )}}>
 							{category.title}
 						</li>
 					))}
