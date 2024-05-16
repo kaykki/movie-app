@@ -33,18 +33,9 @@ const PageHome = () => {
 		fetchMovies(currentCategory);
 	}, [currentCategory]);
 
-	// Chaning tabs 
+	// Chaning categories 
 	const changeCategories = (category) => {
-		
-		if (category.category == 'Now Playing') {
-			setCurrentCategory('now_playing');
-		} else if (category.category == 'Upcoming') {
-			setCurrentCategory('upcoming');
-		} else if (category.category == 'Top Rated') {
-			setCurrentCategory('top_rated');
-		} else if (category.category == 'Popular') {
-			setCurrentCategory('popular');
-		}
+		setCurrentCategory(category);
 	};
 
 	const loadMore = async () => {
@@ -66,11 +57,12 @@ const PageHome = () => {
 		<>
 			<nav className="tab-nav">
 				<ul>
-					{Object.keys(categories).map((category, i) => (
-						<li key={i} 
+					{categories.map((category) => (
+						<li key={category.value} 
 							className="tab" 
-							onClick={() => {changeCategories({ category })}}>
-							{category}
+							style={category.value == currentCategory ? {listStyleType: 'disc'} : null}
+							onClick={() => {changeCategories( category.value )}}>
+							{category.title}
 						</li>
 					))}
 				</ul>
