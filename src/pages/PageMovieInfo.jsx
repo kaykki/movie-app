@@ -13,12 +13,26 @@ function MovieInfo() {
   const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [movieCast, setMovieCast] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const favs = useSelector((state) => state.favs.items);
 
 
   useEffect(() => {
 		document.title = "Movie Information | " + appTitle;
 	}, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 700);
+    };
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
  
   useEffect(() => {
 
@@ -90,6 +104,17 @@ function MovieInfo() {
         />
         <section className='cast'>
           <h2>Cast</h2>
+          {isMobile ? (
+          <div className='non-slider-container'>
+          {movieCast.cast.slice(0, 8).map(member => (
+            <article className='cast-card' key={member.id}>
+            <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
+            <h3>{member.name}</h3>
+            <p>{member.character}</p>
+            </article>
+          ))}
+          </div>
+          ) : (
           <div className='slider-container'>
           <Slider {...settings}>
           {movieCast.cast.slice(0, 10).map(member => (
@@ -101,15 +126,7 @@ function MovieInfo() {
           ))}
           </Slider>
           </div>
-          <div className='non-slider-container'>
-          {movieCast.cast.slice(0, 8).map(member => (
-            <article className='cast-card' key={member.id}>
-            <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
-            <h3>{member.name}</h3>
-            <p>{member.character}</p>
-            </article>
-          ))}
-          </div>
+          )}
         </section>
         </div>
       ) : 

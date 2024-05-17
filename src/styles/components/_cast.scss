@@ -19,6 +19,9 @@
     @media (min-width: 26.25em) {
         width: 12.5rem;
     }
+    @media (min-width: 43.75em) {
+        cursor: pointer;
+    }
 }
 
 .non-slider-container{
