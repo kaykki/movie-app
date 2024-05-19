@@ -14,7 +14,12 @@
 }
 
 .movie-poster {
+    border-radius: 1rem;
     position: relative;
+}
+
+.movie-poster:hover {
+    box-shadow: 0.1rem 0.1rem 1rem $primary-color;
 }
 
 .hover-movie {
