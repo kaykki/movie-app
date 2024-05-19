@@ -32,7 +32,7 @@ function MovieCard({ movie, isFav }) {
             </div>
 
             <div className='rating'>
-                <p>{movie.vote_average.toFixed(1)}</p>
+                <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
             </div>
 
             <div className='movie-info'>
