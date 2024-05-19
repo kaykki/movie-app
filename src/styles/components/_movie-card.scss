@@ -1,6 +1,9 @@
 @use '../base/settings' as *;
 
 .movie-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     position: relative;
     width: 31.25rem;
     border-radius: 1rem;
@@ -37,9 +40,11 @@
 .more-info-btn {
     width: fit-content;
     background-color: $secondary-color;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 1rem;
     color: $background-color;
+    font-size: .875rem;
+    font-weight: bold;
 }
 
 .movie-info {
@@ -47,7 +52,6 @@
     justify-content: space-between;
     color: $primary-color;
     font-size: 1.75rem;
-    font-weight: bold;
 }
 
 .movie-info h3 {
