@@ -28,12 +28,10 @@ header {
 
 	.search-input {
 		padding: .75rem;
-		width: 250px;
 		border-radius: 20px;
+		z-index: 99;
 
-		@media (min-width: 65rem) {
-			width: 300px;
-		}
+		@media (min-width: 65rem) {}
 
 	}
 
@@ -52,8 +50,27 @@ header {
 
 .search-results {
 	position: absolute;
-	top: 4rem;
+	top: 0;
+	border-radius: 1.5625rem;
+	padding: 3.5rem 2rem 0.5rem 2rem;
 	background-color: white;
 	font-size: 1.5rem;
-	z-index: 99;
+	z-index: 98;
+	max-height: 20rem;
+	overflow-y: auto;
+}
+
+.search-results ul {
+	padding: 0;
+}
+
+.search-results::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
