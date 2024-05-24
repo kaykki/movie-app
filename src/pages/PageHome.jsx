@@ -48,7 +48,7 @@ const PageHome = () => {
 	}
 
 	return (
-		<>
+		<main>
 			<nav className="tab-nav">
 				<ul>
 					{categories.map((category) => (
@@ -73,7 +73,7 @@ const PageHome = () => {
 				</div>
 				<button className='load-more-btn' onClick={() => {loadMore();}}>Load More</button>
 			</section>
-		</>
+		</main>
 	);
 };
 

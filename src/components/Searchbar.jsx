@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Searchbar() {
 
-    const [movieList, setMovieList]     = useState([]);
- 
+    const [movieList, setMovieList] = useState([]);
+
     const fetchMovie = async (searchInput) => {
 
         const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`, {
@@ -16,31 +16,31 @@ function Searchbar() {
 
         let data = await response.json();
 
-        setMovieList(data.results);      
+        setMovieList(data.results.slice(0, 18));
     }
 
     return (
         <div className="search-container">
-                <input type="text"
-                    className="search-input"
-                    placeholder="Search"
-                    onChange={(e) => {e.preventDefault(); fetchMovie(e.target.value)}}
-                />
-                <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
+            <input type="text"
+                className="search-input"
+                placeholder="Search"
+                onChange={(e) => { e.preventDefault(); fetchMovie(e.target.value) }}
+            />
+            <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
 
-                <div className='search-results' style={movieList.length > 0 ? {opacity: 1} : {opacity: 0}}>
-                    <ul>
-                        {movieList.map((movie) => {
-                            return (
-                                <li key={movie.id}>
-                                    {/* <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" /> */}
-                                    <Link to={`/movieinfo/${movie.id}`}>{movie.title}</Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+            <div className='search-results' style={movieList.length > 0 ? { opacity: 1 } : { opacity: 0 }}>
+                <ul>
+                    {movieList.map((movie) => {
+                        return (
+                            <li key={movie.id}>
+                                {/* <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" /> */}
+                                <Link to={`/movieinfo/${movie.id}`}>{movie.title}</Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
+        </div>
     )
 }
 
