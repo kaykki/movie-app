@@ -5,3 +5,6 @@ function getYear() {
 }
 
 export { getYear };
+
+// get current date
+export const currentDate = Date();

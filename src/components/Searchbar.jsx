@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 function Searchbar() {
 
-    const [movieList, setMovieList] = useState([]);
+    const [movieList, setMovieList]     = useState([]);
+    const [showResults, setShowResults] = useState('none');
 
     const fetchMovie = async (searchInput) => {
 
@@ -17,6 +18,13 @@ function Searchbar() {
         let data = await response.json();
 
         setMovieList(data.results.slice(0, 18));
+
+        if(movieList.length > 0) {
+            setShowResults('block');
+        } else {
+            setShowResults('none');
+        }
+        
     }
 
     return (
@@ -24,17 +32,21 @@ function Searchbar() {
             <input type="text"
                 className="search-input"
                 placeholder="Search"
-                onChange={(e) => { e.preventDefault(); fetchMovie(e.target.value) }}
+                onChange={(e) => { e.preventDefault(); fetchMovie(e.target.value);}}
+                onBlur={() => setShowResults('none')}
+                onFocus={() => setShowResults('block')}
             />
             <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
 
-            <div className='search-results' style={movieList.length > 0 ? { opacity: 1 } : { opacity: 0 }}>
+            <div className='search-results' style={{display: showResults }}>
                 <ul>
                     {movieList.map((movie) => {
                         return (
                             <li key={movie.id}>
-                                {/* <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" /> */}
-                                <Link to={`/movieinfo/${movie.id}`}>{movie.title}</Link>
+                                <Link to={`/movieinfo/${movie.id}`}>
+                                    <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" />
+                                    {movie.title}
+                                </Link>
                             </li>
                         )
                     })}

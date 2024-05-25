@@ -69,6 +69,11 @@
 }
 
 .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6.25rem;
+    width: 6.25rem;
     position: absolute;
     top: 1rem;
     right: 1rem;
