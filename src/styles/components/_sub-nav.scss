@@ -1,0 +1,45 @@
+@use '../base/settings' as *;
+ 
+.category-dropdown{
+    text-align: center;
+    display: block;
+    font-size: 1.5rem;
+    position: relative;
+    margin: 1rem;
+    button{
+        border: none;
+        background: none;
+        color: $primary-color;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .disc{ 
+        display: inline-block;
+        width: 10px;
+        height: 10px; 
+        border-radius: 50%; 
+        background-color: $primary-color; 
+        margin-right: 5px; 
+        vertical-align: 10%;
+    
+    }    
+}
+
+.dropdown-list{
+    font-size: 1.5rem;
+    width: 100%;
+    color: $primary-color;
+    padding: 0 0 1rem 0;
+    cursor: pointer;
+    margin-top: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    background-color: $background-color;
+
+    li {
+        padding: .5rem;
+    }
+
+}

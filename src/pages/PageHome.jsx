@@ -10,9 +10,24 @@ const PageHome = () => {
 	const [movieList, setMovieList] 		    = useState([]);
 	const [currentCategory, setCurrentCategory] = useState("now_playing");
 	const [currentPage, setCurrentPage] 		= useState(1);
+	const [isMobile, setIsMobile] = useState(false);
+	const [showDropdown, setShowDropdown] = useState(false);
 
 	const favs = useSelector((state) => state.favs.items);
 
+    useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth < 700);
+        };
+        handleResize();
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+	  
 	useEffect(() => {
 		document.title = "Home | " + appTitle;
 		const fetchMovies = async (category) => {
@@ -47,8 +62,34 @@ const PageHome = () => {
 		setMovieList(movieList => ([...movieList, ...data.results.slice(0, 18)]));
 	}
 
+	const toggleDropdown = () => {
+		setShowDropdown(!showDropdown);
+	}
+
 	return (
 		<main>
+			{isMobile ? (
+				<div className="category-dropdown">
+				<button className="category-dropdown-btn" onClick={toggleDropdown}>
+					<span className="disc"></span>
+					<label>{currentCategory.replace(/_/g, " ").toUpperCase()}</label>
+				</button>
+				{showDropdown && (
+					<ul className="dropdown-list">
+						{categories.map((category) => (
+							<li key={category.value} 
+								onClick={() => {
+									setCurrentCategory(category.value);
+									toggleDropdown();
+								}}>
+								{category.value === currentCategory && <span className="disc"></span>}
+								{category.title}
+							</li>
+						))}
+					</ul>
+				)}
+			</div>
+			) : (
 			<nav className="tab-nav">
 				<ul>
 					{categories.map((category) => (
@@ -59,8 +100,10 @@ const PageHome = () => {
 							{category.title}
 						</li>
 					))}
+					
 				</ul>
 			</nav>
+			)}
 			<section className='movies-display'>
 				<div className="movie-container">
 					{movieList.map(movie => {
