@@ -16,3 +16,7 @@
 .tab {
     cursor: pointer;
 }
+
+.tab:hover {
+    color: $secondary-color;
+}
