@@ -1,0 +1,57 @@
+@use '../base/settings' as *; 
+
+.search-container {
+    position: relative;
+    display: none;
+
+    @media (min-width: 43.75em) {
+        display: flex;
+    }
+}
+
+.search-input {
+    padding: .75rem;
+    border-radius: 1rem;
+    z-index: 99;
+
+    @media (min-width: 65rem) {}
+
+}
+
+.search-button {
+    background: none;
+    border: none;
+    color: $primary-color;
+    font-size: 1.5rem;
+    position: absolute;
+    right: .5rem;
+    top: .4rem;
+
+}
+
+.search-results {
+	position: absolute;
+	top: 0;
+	border-radius: 1.5625rem;
+	padding: 3.5rem 2rem 0.5rem 2rem;
+	background-color: white;
+	font-size: 1.5rem;
+	z-index: 98;
+	max-height: 40rem;
+	overflow-y: auto;
+}
+
+.search-results ul {
+	padding: 0;
+}
+
+.search-results::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}

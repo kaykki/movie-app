@@ -3,6 +3,7 @@ import Nav from './Nav';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { appTitle } from '../global/global';
+import Searchbar from './Searchbar';
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
@@ -24,14 +25,10 @@ const Header = () => {
         return () => mediaQuery.removeEventListener('change', isDesktop);
     }, []);
 
-
     return (
         <header className={showNav ? 'show' : ''}>
             <h1><Link className="logo" to="/">{appTitle}</Link></h1>
-            <div className="search-container">
-                <input type="text" className="search-input" placeholder="Search" />
-                <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
-            </div>
+            <Searchbar />
             <button className="btn-main-nav"
                 onClick={toggleNav}>
                 <span className="hamburger-icon">

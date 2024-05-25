@@ -5,14 +5,20 @@
 
 //components
 @use 'components/body';
+@use 'components/footer';
 @use 'components/header';
 @use 'components/nav';
+@use 'components/search-bar';
 @use 'components/pagehome';
 @use 'components/movie-card';
 @use 'components/category-tabs';
 @use 'components/fav-button';
+<<<<<<< HEAD
 @use 'components/info-card';
 @use 'components/cast';
+=======
+@use 'components/load-more-btn';
+>>>>>>> page-home
 
 //utilities
 

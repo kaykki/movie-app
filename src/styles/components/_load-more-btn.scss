@@ -1,0 +1,11 @@
+@use '../base/settings' as *;
+
+.load-more-btn {
+    cursor: pointer;
+    width: fit-content;
+    border: none;
+    background-color: $primary-color;
+    border-radius: 1.5625rem;
+    font-size: 2.25rem;
+    padding: 2rem 4rem;
+}
