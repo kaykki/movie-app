@@ -75,6 +75,7 @@ const PageHome = () => {
 					<label>{currentCategory.replace(/_/g, " ").toUpperCase()}</label>
 				</button>
 				{showDropdown && (
+				<nav>
 					<ul className="dropdown-list">
 						{categories.map((category) => (
 							<li key={category.value} 
@@ -87,6 +88,7 @@ const PageHome = () => {
 							</li>
 						))}
 					</ul>
+				</nav>
 				)}
 			</div>
 			) : (
