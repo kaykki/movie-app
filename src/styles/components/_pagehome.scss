@@ -7,7 +7,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 6.25rem;
+    gap: 3rem;
+
+    @media (min-width: 55em) {
+        gap: 6.25rem;
+    }
 }
 
 .movie-container {
