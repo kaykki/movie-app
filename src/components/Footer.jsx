@@ -4,7 +4,7 @@ import { authors } from '../global/global';
 const Footer = () => {
   return (
     <footer>
-        <p>&copy; {getYear() + " " + authors} </p>
+        <p>&copy; {getYear() + " by " + authors} </p>
     </footer>
   )
 }
