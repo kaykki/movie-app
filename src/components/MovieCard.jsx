@@ -28,8 +28,9 @@ function MovieCard({ movie, isFav }) {
                 <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}`: missingPoster} 
                      alt={movie.title} 
                      className="movie-image" />
-                <div className='hover-movie' style={ isHovered ? {opacity: 1} : {opacity: 0}}>
-                    <p>{movie.overview.slice(0, 175)}...</p>
+                <div className='hover-movie' 
+                     style={ isHovered ? {opacity: 1} : {opacity: 0}}>
+                    <p>{movie.overview.slice(0, 175)}No description found...</p>
                     <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
                 </div>
             </div>

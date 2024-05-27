@@ -7,6 +7,7 @@
     position: relative;
     width: 15rem;
     border-radius: 1rem;
+    transition-delay: all 0.5s;
 
     img{
         border-radius: 1rem;
@@ -35,9 +36,9 @@
         font-weight: bold;
         color: $primary-color;
         background-color: $secondary-color;
-        border: 0.2rem solid $primary-color;
+        border: 0.15rem solid $primary-color;
         padding: 1rem;
-        border-radius: 50%;
+        border-radius: 20%;
     }
 
     @media (min-width: 55em) {
@@ -47,6 +48,10 @@
             height: 37.5rem;
         }
     }
+}
+
+.movie-card:hover {
+    transform: scale(1.01);
 }
 
 .hover-movie {
@@ -70,13 +75,17 @@
 
     .more-info-btn {
         width: fit-content;
-        background-color: $secondary-color;
+        background-color: $primary-color;
         padding: 0.5rem 1.5rem;
         border-radius: 1rem;
         color: $background-color;
         font-size: .875rem;
         font-weight: bold;
     }
+
+    .more-info-btn:hover {
+        color: $secondary-color;
+    } 
 
     @media (min-width: 55em) {
         font-size: 1.25rem;
