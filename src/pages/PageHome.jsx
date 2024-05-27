@@ -42,7 +42,7 @@ const PageHome = () => {
 		});
 
 		let data = await response.json();
-		setMovieList(movieList => ([...movieList, ...data.results]));
+		setMovieList(movieList => ([...movieList, ...data.results.slice(0, 12)]));
 	}
 
 	const show = () => {

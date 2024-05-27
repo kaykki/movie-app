@@ -6,6 +6,16 @@
     border: none;
     background-color: $primary-color;
     border-radius: 1.5625rem;
-    font-size: 2.25rem;
-    padding: 2rem 4rem;
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+
+    @media (min-width: 55em) {
+        font-size: 2.25rem;
+        padding: 2rem 4rem;
+    }
+}
+
+.load-more-btn:hover,
+.load-more-btn:focus {
+    color: $secondary-color;
 }
