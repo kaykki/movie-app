@@ -5,22 +5,48 @@
     flex-direction: column;
     gap: 1rem;
     position: relative;
-    width: 25rem;
+    width: 15rem;
     border-radius: 1rem;
-}
 
-.movie-card img{
-    border-radius: 1rem;
-}
+    img{
+        border-radius: 1rem;
+    }
 
-.movie-poster {
-    height: 37.5rem;
-    border-radius: 1rem;
-    position: relative;
-}
+    .movie-poster {
+        height: 22.5rem;
+        border-radius: 1rem;
+        position: relative;
+    }
 
-.movie-poster:hover {
-    box-shadow: 0.1rem 0.1rem 1rem $primary-color;
+    .movie-poster:hover {
+        box-shadow: 0.1rem 0.1rem 1rem $primary-color;
+    }
+
+    .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+        width: 4rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $primary-color;
+        background-color: $secondary-color;
+        border: 0.2rem solid $primary-color;
+        padding: 1rem;
+        border-radius: 50%;
+    }
+
+    @media (min-width: 37.5em) {
+        width: 25rem;
+
+        .movie-poster {
+            height: 37.5rem;
+        }
+    }
 }
 
 .hover-movie {
@@ -34,23 +60,27 @@
     background-color: rgba(26, 26, 26, 0.85);
     bottom: 0;
     padding: 1rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: $secondary-color;
     transition: all 0.5s;
-}
 
-.hover-movie p {
-    font-weight: normal;
-}
+    p {
+        font-weight: normal;
+    }
 
-.more-info-btn {
-    width: fit-content;
-    background-color: $secondary-color;
-    padding: 0.5rem 1.5rem;
-    border-radius: 1rem;
-    color: $background-color;
-    font-size: .875rem;
-    font-weight: bold;
+    .more-info-btn {
+        width: fit-content;
+        background-color: $secondary-color;
+        padding: 0.5rem 1.5rem;
+        border-radius: 1rem;
+        color: $background-color;
+        font-size: .875rem;
+        font-weight: bold;
+    }
+
+    @media (min-width: 37.5em) {
+        font-size: 1.25rem;
+    }
 }
 
 .movie-info {
@@ -58,30 +88,12 @@
     justify-content: space-between;
     color: $primary-color;
     font-size: 1.75rem;
-}
 
-.movie-info h3 {
-    font-size: 1.5rem;
-}
+    h3 {
+        font-size: 1.5rem;
+    }
 
-.movie-info p {
-    font-size: 1rem;
-}
-
-.rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    width: 4rem;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: $primary-color;
-    background-color: $secondary-color;
-    border: 0.2rem solid $primary-color;
-    padding: 1rem;
-    border-radius: 50%;
+    p {
+        font-size: 1rem;
+    }
 }
