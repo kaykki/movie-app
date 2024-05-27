@@ -12,11 +12,13 @@ const PageAbout = () => {
     return (
         <div className="about-wrapper">
             <img className="theatre-image" src={theatreImage} alt="Theatre Image" width="300" />
-            <h2>About</h2>
-            <p className="about-text">"Seenema" is an application that allows users to easily search, favorite, and find other valuable information about movies around the world.</p>
-            <p className="about-text">This product uses the TMDb API but is not endorsed or certified by TMDb. This application uses the TMDb API. 
-            This application was created for educational purposes only.</p>
-            <img src={TmdbIcon} alt="Tmdb logo" width="100" />
+            <article className="info-wrapper">
+                <h2>About</h2>
+                <p className="about-text">"Seenema" is an application that allows users to easily search, favorite, and find other valuable information about movies around the world.</p>
+                <p className="about-text">This product uses the TMDb API but is not endorsed or certified by TMDb. This application uses the TMDb API. 
+                This application was created for educational purposes only.</p>
+                <img src={TmdbIcon} alt="Tmdb logo" width="100" />
+            </article>
         </div>
     )
 }
