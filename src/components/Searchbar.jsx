@@ -7,28 +7,24 @@ function Searchbar() {
     const [searchInput, setSearchInput] = useState('');
     const [showResults, setShowResults] = useState('none');
 
+
     useEffect(() => {
         const fetchMovie = async () => {
-
-            const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`, {
-                headers: {
-                    accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjkzZTM0ZGNiZjg1NGEyZGMxYzE1ZDlkNDk2ODA2MSIsInN1YiI6IjY2MzUyN2QzMzU4ZGE3MDEyYTU1NjMzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WAbBbeAHgieYj7ZUUoUsFfA5cUTRs3ayB3NKYkhQxFM'
-                }
-            });
-    
-            let data = await response.json();
-    
-            setMovieList(data.results.slice(0, 18));
-    
-            if(movieList.length > 0) {
+            if(searchInput.length != 0) {
+                const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&sort_by=popularity.asc`, {
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjkzZTM0ZGNiZjg1NGEyZGMxYzE1ZDlkNDk2ODA2MSIsInN1YiI6IjY2MzUyN2QzMzU4ZGE3MDEyYTU1NjMzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WAbBbeAHgieYj7ZUUoUsFfA5cUTRs3ayB3NKYkhQxFM'
+                    }
+                });
+        
+                let data = await response.json();
+        
+                setMovieList(data.results.slice(0, 18));
                 setShowResults('block');
-            } else {
-                setShowResults('none');
             }
-            
         }
-        fetchMovie();
+        fetchMovie(); 
     }, [searchInput]); 
 
     
@@ -38,7 +34,7 @@ function Searchbar() {
             <input type="text"
                 className="search-input"
                 placeholder="Search"
-                onChange={(e) => { e.preventDefault(); setSearchInput(e.target.value);}}
+                onChange={(e) => {setSearchInput(e.target.value);}}
                 onBlur={() => setShowResults('none')}
                 onFocus={() => movieList.length > 0 ? setShowResults('block') : setShowResults('none') }
             />
