@@ -2,17 +2,22 @@ main {
     padding-top: 9.375rem;
 }
 
-.movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-}
-
 .movies-display {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 6.25rem;
+    gap: 3rem;
+
+    @media (min-width: 55em) {
+        gap: 6.25rem;
+    }
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
 }
