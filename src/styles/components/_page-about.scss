@@ -1,0 +1,25 @@
+@use '../base/settings' as *;
+
+.about-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.about-text{
+    color: $secondary-color;
+}
+.theatre-image{
+    display: none;
+}
+@media (min-width: 48rem) {
+    .about-wrapper{
+        display: grid;
+        gap: 50px;
+        grid-template-columns: auto auto;
+  padding: 10px;
+    }
+    .theatre-image{
+        display: block;
+    }
+}
