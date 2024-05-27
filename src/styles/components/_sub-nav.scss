@@ -10,16 +10,24 @@
         border: none;
         background: none;
         color: $primary-color;
+        border: 3px solid $primary-color;
+        border-radius: 10px;
+        padding: .5rem;
+        cursor: pointer;
+        &:active{
+            background-color: $primary-color;
+            color: $background-color;
+        }
     }
-    .disc{ 
-        display: inline-block;
-        width: 10px;
-        height: 10px; 
-        border-radius: 50%; 
-        background-color: $primary-color; 
-        margin-right: 5px; 
-        vertical-align: 10%;
-    }
+    // .disc{ 
+    //     display: inline-block;
+    //     width: 10px;
+    //     height: 10px; 
+    //     border-radius: 50%; 
+    //     background-color: $primary-color; 
+    //     margin-right: 5px; 
+    //     vertical-align: 10%;
+    // }
 }
 
 .dropdown-list{
@@ -32,9 +40,14 @@
     position: absolute;
     z-index: 1000;
     background-color: $background-color;
+    cursor: pointer;
 
     li {
         padding: .5rem;
+        &:active{
+            color: $background-color;
+            background-color: $primary-color;
+        }
     }
 
 }

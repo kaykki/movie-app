@@ -72,7 +72,7 @@ const PageHome = () => {
 				<div className="category-dropdown">
 				<button className="category-dropdown-btn" onClick={toggleDropdown}>
 					<span className="disc"></span>
-					<label>{currentCategory.replace(/_/g, " ").toUpperCase()}</label>
+					{currentCategory.replace(/_/g, " ").toUpperCase()}
 				</button>
 				{showDropdown && (
 				<nav>
