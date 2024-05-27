@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     
+    
     p{
         margin: 1rem 5rem;
     }
@@ -20,14 +21,28 @@
     }
 
     @media (min-width: 48rem) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        max-width: 70rem;
+        justify-content: center;
+        margin: 30px auto;
+
+        .theatre-image{
+            display: block;
+            margin-left: 3rem;
+        }
+    }
+
+    @media (min-width: 60rem) {
         
            flex-direction: row;
            flex-wrap: nowrap;
            max-width: 70rem;
            justify-content: center;
-           margin: 0 auto;
+           margin: 30px auto;
         
         .info-wrapper{
+            
             text-align: center;
         }
         p{
