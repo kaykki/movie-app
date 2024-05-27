@@ -4,14 +4,18 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 12.5rem;
+    height: 10rem;
     color: $secondary-color;
-}
 
-footer p {
-    font-size: 1.5rem;
-}
+    @media (min-width: 50em) {
+        height: 12.5rem;
+    }
 
-footer img {
-    width: fit-content;
+    p {
+        font-size: 1rem;
+
+        @media (min-width: 50em) {
+            font-size: 1.5rem;
+        }
+    }
 }
