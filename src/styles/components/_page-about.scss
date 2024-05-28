@@ -1,0 +1,60 @@
+@use '../base/settings' as *;
+
+.about-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    
+    
+    p{
+        margin: 1rem 5rem;
+    }
+    .info-wrapper{
+        text-align: center;
+    }
+    .about-text{
+        color: $secondary-color;
+    }
+    .theatre-image{
+        display: none;
+    }
+
+    @media (min-width: 48rem) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        max-width: 70rem;
+        justify-content: center;
+        margin: 30px auto;
+
+        .theatre-image{
+            display: block;
+            margin-left: 3rem;
+        }
+    }
+
+    @media (min-width: 60rem) {
+        
+           flex-direction: row;
+           flex-wrap: nowrap;
+           max-width: 70rem;
+           justify-content: center;
+           margin: 30px auto;
+        
+        .info-wrapper{
+            
+            text-align: center;
+        }
+        p{
+            margin: 2rem 0;
+            text-align: center;
+            width: 100%;
+            padding: 0 10rem;
+        }
+        
+        .theatre-image{
+            display: block;
+            margin-left: 3rem;
+        }
+    }
+}

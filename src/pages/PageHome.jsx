@@ -15,7 +15,23 @@ const PageHome = () => {
 		url: `https://api.themoviedb.org/3/movie/now_playing?language=en-US`,
 	});
 
+	const [isMobile, setIsMobile] = useState(false);
+	const [showDropdown, setShowDropdown] = useState(false);
+
 	const favs = useSelector((state) => state.favs.items);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 700);
+		};
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
 
 	useEffect(() => {
 		document.title = "Home | " + appTitle;
@@ -52,27 +68,49 @@ const PageHome = () => {
 		return newPage;
 	}
 
-
-
+	const toggleDropdown = () => {
+		setShowDropdown(!showDropdown);
+	}
 
 	return (
 		<main>
-			<div>
-				<HeroSlide />
-			</div>
-			<nav className="tab-nav">
-				<ul>
-					{categories.map((category) => (
-						<li key={category.value}
-							className="tab"
-							style={category.title == currentCategory.title ? { listStyleType: 'disc' } : null}
-							onClick={() => { setCurrentCategory(category) }}>
-							{category.title}
-						</li>
-					))}
-				</ul>
-			</nav>
+			<HeroSlide />
+			{isMobile ? (
+				<div className="category-dropdown">
+					<button className="category-dropdown-btn" onClick={toggleDropdown}>
+						<span className="disc"></span>
+						<label>{currentCategory.title}</label>
+					</button>
+					{showDropdown && (
+						<ul className="dropdown-list">
+							{categories.map((category) => (
+								<li key={category.value}
+									onClick={() => {
+										setCurrentCategory(category);
+										toggleDropdown();
+									}}>
+									{category === currentCategory && <span className="disc"></span>}
+									{category.title}
+								</li>
+							))}
+						</ul>
+					)}
+				</div>
+			) : (
+				<nav className="tab-nav">
+					<ul>
+						{categories.map((category) => (
+							<li key={category.value}
+								className="tab"
+								style={category.title == currentCategory.title ? { listStyleType: 'disc' } : null}
+								onClick={() => { setCurrentCategory(category) }}>
+								{category.title}
+							</li>
+						))}
 
+					</ul>
+				</nav>
+			)}
 			<section className='movies-display'>
 				<div className="movie-container">
 					{movieList.map(movie => {

@@ -1,4 +1,7 @@
+@use '../base/settings' as *;
+
 .btn-favourite {
     background-color: transparent;
     border: none;
+    color: $primary-color;
 }
