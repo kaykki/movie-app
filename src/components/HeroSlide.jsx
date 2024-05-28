@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FavButton from './FavButton';
+import { addFav, deleteFav } from '../features/favs/favsSlice';
+import { useDispatch } from 'react-redux';
 
-function HeroSlide() {
+function HeroSlide({isFav }) {
     const [movies, setMovies] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [translateValue, setTranslateValue] = useState(0);
+
+    const dispatch = useDispatch();
+
+    function handleFavClick(addToFav, obj) {
+        if (addToFav === true) {
+            dispatch(addFav(obj));
+        } else {
+            dispatch(deleteFav(obj));
+        }
+    }
 
     useEffect(() => {
         const fetchNowPlaying = async () => {
@@ -87,6 +100,10 @@ function HeroSlide() {
                                 <p className="movie-overview">{movie.overview}</p>
                                 : ''}
                             <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>MORE INFO</Link>
+                            {isFav ?
+                                <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> :
+                                <FavButton movie={movie} handleFavClick={handleFavClick} />
+                            }
                         </div>
                     </div>
                 ))}
