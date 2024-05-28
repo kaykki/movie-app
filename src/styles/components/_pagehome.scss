@@ -24,23 +24,33 @@ main {
 
 // hero-slide
 .hero-slide {
-    text-align: center;
-    background-color: #363636;
-    color: #fff;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    background-color: #363636;
+    color: #fff;
+    min-height: fit-content;
+
+    @media (min-width: 55rem) {
+        min-height: 100vh;
+
+    }
+
 }
 
 .slideshow-container {
+    width: 90%;
     position: relative;
-    width: 80%;
-    max-width: 1200px;
     margin: auto;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0.875rem;
+    max-width: 400px;
+
+    @media (min-width: 55rem) {
+        max-width: 1200px;
+    }
 }
 
 .movie-slider {
@@ -50,21 +60,34 @@ main {
 
 .movie-cardy {
     display: flex;
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
     position: relative;
+    min-width: 100%;
+    padding: 1.25rem;
+
+    @media (min-width: 55rem) {
+        flex-direction: row;
+    }
 }
 
 .movie-poster {
-    flex: 1;
+    flex: 0.75;
+
+    @media (min-width: 55rem) {
+        flex: 1;
+    }
 }
 
 .movie-imagey {
-    width: 100%;
+    width: 70%;
     border-radius: 10px;
+
+    @media (min-width: 55rem) {
+        width: 100%;
+    }
 }
 
 .movie-infor {
@@ -79,26 +102,17 @@ main {
 }
 
 .movie-title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin: 0;
+
+    @media (min-width: 55rem) {
+        font-size: 2.5rem;
+    }
 }
 
 .slideshow-container .movie-overview {
     font-size: 1.125rem;
     margin: 0.5rem 3rem;
-}
-
-.more-info-button {
-    padding: 10px 20px;
-    background-color: #e50914;
-    color: #fff;
-    border: none;
-    border-radius: 0.625rem;
-    cursor: pointer;
-}
-
-.more-info-button:hover {
-    background-color: #f40612;
 }
 
 button.prev,
@@ -136,9 +150,13 @@ button:hover {
     width: fit-content;
     padding: 1rem;
     border-radius: 1rem;
-    font-size: 2rem;
+    font-size: 1rem;
     align-self: center;
     font-family: "Montserrat", sans-serif;
+
+    @media (min-width: 55rem) {
+        font-size: 2rem;
+    }
 }
 
 .movie-infor a:hover {
