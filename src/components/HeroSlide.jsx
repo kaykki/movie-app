@@ -99,7 +99,7 @@ function HeroSlide({isFav }) {
                             {window.innerWidth > 600 ?
                                 <p className="movie-overview">{movie.overview}</p>
                                 : ''}
-                            <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>MORE INFO</Link>
+                            <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
                             {isFav ?
                                 <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> :
                                 <FavButton movie={movie} handleFavClick={handleFavClick} />
