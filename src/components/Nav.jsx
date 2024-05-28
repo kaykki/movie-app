@@ -18,7 +18,6 @@ const Nav = ({ handleShowHideNav }) => {
             <span className='x-line'></span>
           </span>
             <ul>
-                <li><NavLink to="/" >Home</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
                 <li><NavLink to="/favourites">Favourites</NavLink></li>
                 

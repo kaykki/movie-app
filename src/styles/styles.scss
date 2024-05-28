@@ -5,13 +5,18 @@
 
 //components
 @use 'components/body';
+@use 'components/footer';
 @use 'components/header';
 @use 'components/nav';
+@use 'components/search-bar';
 @use 'components/pagehome';
 @use 'components/movie-card';
 @use 'components/category-tabs';
 @use 'components/fav-button';
+@use 'components/load-more-btn';
 @use 'components/info-card';
+@use 'components/cast';
+@use 'components/sub-nav';
 @use 'components/page-about';
 
 //utilities

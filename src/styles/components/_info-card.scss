@@ -1,6 +1,7 @@
 @use '../base/settings' as *;
 
 .movie-info-card{
+    padding: 9.375rem 1rem 1rem 1rem;
     position: relative;
     display: flex;
     justify-content: center;
@@ -22,25 +23,31 @@
         @media(min-width: 65em){
             height: 40rem;
         }
+        @media(min-width: 105em){
+            height: 50rem;
+        }
 
     }
 
     .info-poster{
         border-radius: 15px;
         height: 25rem;
-        @media (max-width: 43.75em) {
+        margin-left: 1rem;
+        @media (max-width: 37.5em) {
                 display: none;
             }
         @media (min-width: 65em) {
             height: 32rem;
         }
+        @media (min-width: 105em) {
+            height: 40rem;
+        }
         }
         
     .movie-info-text {
         position: absolute;
-        bottom: 0;
-        margin: .5rem;
-        @media (min-width: 43.75em){
+        bottom: 1rem;
+        @media (min-width: 37.5em){
             max-width: 50rem;
             display: flex;
             flex-direction: row;
@@ -50,11 +57,24 @@
             transform: translateY(-50%);
 
         }
+        @media (min-width: 105em){
+            max-width: 60rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
     .movie-info-title{
         @media (min-width: 65em){
             font-size: 3rem;
         }
+    }
+    .release-date{
+        font-weight: bold;
+        margin-top: 1rem;
     }
     .genre-list{
         display: flex;
@@ -62,6 +82,12 @@
         li {
             padding-right: 0.5rem;
             font-size: 0.8rem;
+            @media (min-width: 43.75em) {
+                font-size: 1rem;
+            }
+            @media (min-width:105em) {
+                font-size: 1.3rem;
+            }
         }
     }
 
@@ -74,12 +100,22 @@
         border-radius: 50%;
     }
     .full-overview{
+        margin-top: 1rem;
         p{
             font-size: .8rem;
             margin-bottom: 1rem;
-        @media (min-width: 65em){
+        @media (min-width: 43.75rem){
             font-size: 1rem;
         }
+        // @media (min-width: 65em){
+        //     font-size: 1.3rem;
+        // }
+        }
+    }
+
+    @media (min-width: 105em){
+    .movie-info-title{
+        width: 40rem;
         }
     }
 }
