@@ -4,6 +4,7 @@ import { addFav, deleteFav } from '../features/favs/favsSlice';
 import React from 'react'
 import FavButton from './FavButton';
 import { Link } from 'react-router-dom';
+import missingPoster from '../images/missing-poster.png';
 
 function MovieCard({ movie, isFav }) {
 
@@ -24,22 +25,18 @@ function MovieCard({ movie, isFav }) {
             <div className='movie-poster' 
                  onMouseEnter={() => setIsHovered(true)}
                  onMouseLeave={() => setIsHovered(false)}>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-image" />
-                {isHovered ? (
-                    <div className='hover-movie' style={{ opacity: 1 }}>
-                        <p>{movie.overview.slice(0, 100)}...</p>
-                        <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
-                    </div>
-                ) :
-                    <div className='hover-movie' style={{ opacity: 0 }}>
-                        <p>{movie.overview.slice(0, 200)}...</p>
-                        <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
-                    </div>
-                }
+                <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}`: missingPoster} 
+                     alt={movie.title} 
+                     className="movie-image" />
+                <div className='hover-movie' 
+                     style={ isHovered ? {opacity: 1} : {opacity: 0}}>
+                    <p>{movie.overview.slice(0, 175)}No description found...</p>
+                    <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
+                </div>
             </div>
 
             <div className='rating'>
-                <p>{movie.vote_average.toFixed(1)}</p>
+                <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
             </div>
 
             <div className='movie-info'>

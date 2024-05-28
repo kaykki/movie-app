@@ -1,45 +1,23 @@
 @use '../base/settings' as *;
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1rem;
-    background-color: $background-color;
-    @media(min-width: 65em) {
-         
-          flex-wrap: nowrap;  
-          align-items: baseline;
-          justify-content: space-between;
-    }
+	position: fixed;
+	height: 6.25rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 1rem 4rem;
+	background-color: $background-color;
+	font-size: 2rem;
+	box-shadow: 0.1rem 0.1rem 0.5rem $primary-color;
+	z-index: 99;
 
-    .search-container{
-        position: relative;
-        display: none;
-    
-        @media (min-width: 43.75em) {
-          display: flex; 
-        }
-      }
-      .search-input {
-        padding: .75rem;
-        width: 250px;
-        border-radius: 20px;
-        @media (min-width: 65rem){
-          width: 300px;
-        }
-        
-      }
-      .search-button {
-        background: none;
-        border: none;
-        color: $primary-color;
-        font-size: 1.5rem;
-        position: absolute;
-        right: .5rem;
-        top: .4rem;
-        
-      }
-        
+	@media(min-width: 65em) {
+
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+	}
 }
