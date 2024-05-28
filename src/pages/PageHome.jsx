@@ -77,17 +77,17 @@ const PageHome = () => {
 				<div className="category-dropdown">
 				<button className="category-dropdown-btn" onClick={toggleDropdown}>
 					<span className="disc"></span>
-					<label>{currentCategory.replace(/_/g, " ").toUpperCase()}</label>
+					<label>{currentCategory.title}</label>
 				</button>
 				{showDropdown && (
 					<ul className="dropdown-list">
 						{categories.map((category) => (
 							<li key={category.value} 
 								onClick={() => {
-									setCurrentCategory(category.value);
+									setCurrentCategory(category);
 									toggleDropdown();
 								}}>
-								{category.value === currentCategory && <span className="disc"></span>}
+								{category === currentCategory && <span className="disc"></span>}
 								{category.title}
 							</li>
 						))}
