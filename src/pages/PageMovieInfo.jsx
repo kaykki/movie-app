@@ -7,6 +7,7 @@ import InfoCard from '../components/InfoCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import avatar from "../images/avatar.jpg";
 
 function MovieInfo() {
 
@@ -108,9 +109,22 @@ function MovieInfo() {
           <div className='non-slider-container'>
           {movieCast.cast.slice(0, 8).map(member => (
             <article className='cast-card' key={member.id}>
+            {member.profile_path ? (
             <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
-            <h3>{member.name}</h3>
-            <p>{member.character}</p>
+              ) : (
+                <div className='cast-no-img'>
+                <img src={avatar} alt={member.name} />
+                <h3>{member.name}</h3>
+                <p>{member.character}</p>
+              </div>
+              )}
+              {member.profile_path &&(
+              <>
+              <h3>{member.name}</h3>
+              <p>{member.character}</p>
+              </>
+              )
+              }
             </article>
           ))}
           </div>
@@ -119,9 +133,22 @@ function MovieInfo() {
           <Slider {...settings}>
           {movieCast.cast.slice(0, 10).map(member => (
             <article className='cast-card' key={member.id}>
+            {member.profile_path ? (
             <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
-            <h3>{member.name}</h3>
-            <p>{member.character}</p>
+              ) : (
+                <div className='cast-no-img'>
+                <img src={avatar} alt={member.name}/>
+                <h3>{member.name}</h3>
+                <p>{member.character}</p>
+              </div>
+              )}
+              {member.profile_path &&(
+              <>
+              <h3>{member.name}</h3>
+              <p>{member.character}</p>
+              </>
+              )
+              }
             </article>
           ))}
           </Slider>

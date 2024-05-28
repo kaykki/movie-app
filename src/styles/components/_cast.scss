@@ -13,6 +13,9 @@
     padding: .5rem;
     margin: 0;
     width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     p {
         color: $primary-color;
     }
@@ -21,6 +24,7 @@
     }
     @media (min-width: 43.75em) {
         cursor: pointer;
+        position: relative;
     }
 }
 
@@ -37,4 +41,22 @@
     @media (min-width: 43.75em) {
         display: block;
     }
+    
+}
+
+@media(min-width: 43.75em){
+.cast-card .cast-no-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(23%);
+    margin: .25rem;
+    @media(min-width: 46.25em){
+        transform: translateY(24%);
+    }
+    @media(min-width: 70em){
+        transform: translateY(27%);
+    }
+  }
 }
