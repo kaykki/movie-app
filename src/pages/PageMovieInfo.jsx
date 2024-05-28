@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import avatar from "../images/avatar.jpg";
+import Cast from '../components/Cast';
 
 function MovieInfo() {
 
@@ -96,72 +97,36 @@ function MovieInfo() {
 
   return (
     <div>
-      {movie && movieCast ? (
-        <div>
-        <InfoCard 
-        key={movie.id}
-        movie={movie}
-        isFav={isFav(favs, null, movie.id)}
-        />
-        <section className='cast'>
-          <h2>Cast</h2>
-          {isMobile ? (
-          <div className='non-slider-container'>
+  {movie && movieCast ? (
+    <div>
+    <InfoCard 
+      key={movie.id}
+      movie={movie}
+      isFav={isFav(favs, null, movie.id)}
+    />
+    <section className='cast'>
+      <h2>Cast</h2>
+      {isMobile ? (
+        <div className='non-slider-container'>
           {movieCast.cast.slice(0, 8).map(member => (
-            <article className='cast-card' key={member.id}>
-            {member.profile_path ? (
-            <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
-              ) : (
-                <div className='cast-no-img'>
-                <img src={avatar} alt={member.name} />
-                <h3>{member.name}</h3>
-                <p>{member.character}</p>
-              </div>
-              )}
-              {member.profile_path &&(
-              <>
-              <h3>{member.name}</h3>
-              <p>{member.character}</p>
-              </>
-              )
-              }
-            </article>
+            <Cast member={member} avatar={avatar} key={member.id}/>
           ))}
-          </div>
-          ) : (
-          <div className='slider-container'>
+        </div>
+      ) : (
+        <div className='slider-container'>
           <Slider {...settings}>
           {movieCast.cast.slice(0, 10).map(member => (
-            <article className='cast-card' key={member.id}>
-            {member.profile_path ? (
-            <img src={`https://image.tmdb.org/t/p/w500${member.profile_path}`} alt={member.name} />
-              ) : (
-                <div className='cast-no-img'>
-                <img src={avatar} alt={member.name}/>
-                <h3>{member.name}</h3>
-                <p>{member.character}</p>
-              </div>
-              )}
-              {member.profile_path &&(
-              <>
-              <h3>{member.name}</h3>
-              <p>{member.character}</p>
-              </>
-              )
-              }
-            </article>
+            <Cast member={member} avatar={avatar} key={member.id}/>
           ))}
           </Slider>
-          </div>
-          )}
-        </section>
         </div>
-      ) : 
-
-                <p>No movie to display.</p>
-
-            }
-        </div>
+      )}
+    </section>
+  </div>
+  ) : (
+    <p>No movie to display.</p>
+  )}
+</div>
     )
 }
 export default MovieInfo
