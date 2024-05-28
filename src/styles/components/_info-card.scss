@@ -47,24 +47,30 @@
     .movie-info-text {
         position: absolute;
         bottom: 1rem;
+        padding: 1.5rem;
         @media (min-width: 37.5em){
             max-width: 50rem;
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 1rem;
-            top: 50%;
+            top: 60%;
             transform: translateY(-50%);
 
         }
+
+        @media (min-width: 65em) {
+            top: 58%;
+            max-width: 55rem;
+        }
+
         @media (min-width: 105em){
             max-width: 60rem;
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 57%;
         }
     }
     .movie-info-title{
@@ -75,6 +81,9 @@
     .release-date{
         font-weight: bold;
         margin-top: 1rem;
+        @media(min-width: 105em){
+            font-size: 1.5rem;
+        }
     }
     .genre-list{
         display: flex;
@@ -106,10 +115,12 @@
             margin-bottom: 1rem;
         @media (min-width: 43.75rem){
             font-size: 1rem;
+            }
         }
-        // @media (min-width: 65em){
-        //     font-size: 1.3rem;
-        // }
+        @media(min-width: 105em){
+            h3{
+                font-size: 1.5rem;
+            }
         }
     }
 
