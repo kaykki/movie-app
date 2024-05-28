@@ -3,6 +3,7 @@ import MovieCard from '../components/MovieCard';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { appTitle } from '../global/global';
+import seenemaLogo from '../images/seenema-logo.svg';
 
 function PageFavourites() {
 
@@ -15,10 +16,15 @@ function PageFavourites() {
 
     return (
         <main>
-		    <section>
-                <h2>Your Favourites</h2>
-                {favs.length < 1 ? <p>You have no favourite movies :( Go back to the <Link to="/">home</Link> page to add a favourite! </p> : 
-                    <div>
+		    <section className='favourites'>
+                {favs.length < 1 ? 
+                    <div className='no-favs'>
+                        <img src={seenemaLogo} alt="seenema logo"/>
+                        <p>We didn't see any favourites? Go back to the <Link to="/">home</Link> page to look for some movies you might like!</p>
+                    </div>
+                : 
+                    <div className='fav-movies'>
+                        <h2>Your Favourites</h2>
                         {favs.map((movie, i) => {
                             return <MovieCard key={i} 
                                            movie={movie}
