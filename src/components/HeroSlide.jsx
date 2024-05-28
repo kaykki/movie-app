@@ -38,7 +38,7 @@ function HeroSlide() {
     }, [currentIndex, movies.length]);
 
     const slideWidth = () => {
-        return document.querySelector('.movie-cardy').clientWidth;
+        return document.querySelector('.movie-hero').clientWidth;
     };
 
     const slideRight = () => {
@@ -67,38 +67,36 @@ function HeroSlide() {
 
     return (
         <section className="hero-slide">
-            <div className="slideshow-container">
-                <div
-                    className="movie-slider"
-                    style={{
-                        transform: `translateX(${translateValue}px)`,
-                        transition: 'transform ease-out 0.5s'
-                    }}
-                >
-                    {movies.map((movie) => (
-                        <div key={movie.id} className="movie-cardy">
-                            <div className="movie-poster">
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                    alt={movie.title}
-                                    className="movie-imagey"
-                                />
+            <div className="movie-slider"
+                style={{
+                    transform: `translateX(${translateValue}px)`,
+                    transition: 'transform ease-out 0.5s'
+                }}>
+                {movies.map((movie) => (
+                    <div key={movie.id} className="movie-hero">
+                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                            alt={movie.title} />
+                        <div className='hero-overlay'></div>
+                        <div className="movie-infor">
+                            <div className='rating'>
+                                <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
                             </div>
-                            <div className="movie-infor">
-                                <h2 className="movie-title">{movie.title}</h2>
+                            <h2 className="movie-title">{movie.title}</h2>
+                            <p>{movie.release_date}</p>
+                            {window.innerWidth > 600 ?
                                 <p className="movie-overview">{movie.overview}</p>
-                                <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>MORE INFO</Link>
-                            </div>
+                                : ''}
+                            <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>MORE INFO</Link>
                         </div>
-                    ))}
-                </div>
-                <button onClick={prevSlide} className="prev">
-                    &#10094;
-                </button>
-                <button onClick={nextSlide} className="next">
-                    &#10095;
-                </button>
+                    </div>
+                ))}
             </div>
+            <button onClick={prevSlide} className="prev">
+                &#10094;
+            </button>
+            <button onClick={nextSlide} className="next">
+                &#10095;
+            </button>
         </section>
     )
 };
