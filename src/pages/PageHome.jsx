@@ -5,6 +5,7 @@ import HeroSlide from '../components/HeroSlide';
 import isFav from '../utilities/isFav';
 import { useSelector } from 'react-redux';
 import { appTitle, categories } from "../global/global";
+import Searchbar from '../components/Searchbar';
 
 const PageHome = () => {
 	const [movieList, setMovieList] = useState([]);
@@ -75,6 +76,7 @@ const PageHome = () => {
 	return (
 		<main>
 			<HeroSlide />
+			{isMobile ? <Searchbar /> : ''}
 			{isMobile ? (
 				<div className="category-dropdown">
 					<button className="category-dropdown-btn" onClick={toggleDropdown}>
