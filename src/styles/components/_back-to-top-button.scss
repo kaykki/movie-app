@@ -1,0 +1,19 @@
+@use '../base/settings' as *;
+
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #c996cc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.back-to-top-btn:hover {
+    background-color: #ffffff;
+    color: #c996cc;
+}

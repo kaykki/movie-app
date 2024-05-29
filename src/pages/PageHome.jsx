@@ -6,6 +6,7 @@ import isFav from '../utilities/isFav';
 import { useSelector } from 'react-redux';
 import { appTitle, categories } from "../global/global";
 import Searchbar from '../components/Searchbar';
+import BackToTopButton from '../components/BackToTopButton';
 
 const PageHome = () => {
 	const [movieList, setMovieList] = useState([]);
@@ -128,6 +129,7 @@ const PageHome = () => {
 					Load More
 				</button>
 			</section>
+			<BackToTopButton />
 		</main>
 	);
 };
