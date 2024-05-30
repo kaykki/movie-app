@@ -20,6 +20,18 @@
         display: none;
     }
 
+    .developers article{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        a, p{
+            margin: 1rem .5rem;
+            padding: 0;
+            width: fit-content;
+        }
+    }
+
     @media (min-width: 48rem) {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -30,6 +42,18 @@
         .theatre-image{
             display: block;
             margin-left: 3rem;
+        }
+
+        .developers article{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            a, p{
+                margin: 1rem .5rem;
+            }
+            
+            
         }
     }
 
@@ -56,5 +80,18 @@
             display: block;
             margin-left: 3rem;
         }
+
+        .developers article{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            a, p{
+                margin: 1rem .5rem;
+                padding: 0;
+                width: fit-content;
+            }
+        }
+        
     }
 }
