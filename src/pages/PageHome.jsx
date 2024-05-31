@@ -6,8 +6,12 @@ import isFav from '../utilities/isFav';
 import { useSelector } from 'react-redux';
 import { appTitle, categories } from "../global/global";
 import Searchbar from '../components/Searchbar';
+import BackToTopButton from '../components/BackToTopButton';
+import Loading from '../components/Loading';
 
 const PageHome = () => {
+
+	const [loading, setLoading] = useState(false);
 	const [movieList, setMovieList] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [currentCategory, setCurrentCategory] = useState({
@@ -37,6 +41,7 @@ const PageHome = () => {
 	useEffect(() => {
 		document.title = "Home | " + appTitle;
 		const fetchMovies = async () => {
+			setLoading(true);
 			const response = await fetch(`${currentCategory.url}&page=1`, {
 				headers: {
 					accept: 'application/json',
@@ -46,6 +51,10 @@ const PageHome = () => {
 
 			let data = await response.json();
 			setMovieList(data.results.slice(0, 12));
+
+			setTimeout(() => {
+				setLoading(false);
+			  }, "2000");
 		}
 
 		fetchMovies();
@@ -75,59 +84,66 @@ const PageHome = () => {
 
 	return (
 		<main>
-			<HeroSlide />
-			{isMobile ? <Searchbar /> : ''}
-			{isMobile ? (
-				<div className="category-dropdown">
-					<button className="category-dropdown-btn" onClick={toggleDropdown}>
-						<span className="disc"></span>
-						<label>{currentCategory.title}</label>
-					</button>
-					{showDropdown && (
-						<ul className="dropdown-list">
-							{categories.map((category) => (
-								<li key={category.value}
-									onClick={() => {
-										setCurrentCategory(category);
-										toggleDropdown();
-									}}>
-									{category === currentCategory && <span className="disc"></span>}
-									{category.title}
-								</li>
-							))}
-						</ul>
-					)}
-				</div>
-			) : (
-				<nav className="tab-nav">
-					<ul>
-						{categories.map((category) => (
-							<li key={category.value}
-								className="tab"
-								style={category.title == currentCategory.title ? { listStyleType: 'disc' } : null}
-								onClick={() => { setCurrentCategory(category) }}>
-								{category.title}
-							</li>
-						))}
+			{loading 
+			? (<Loading />) 
+			: (
+				<>
+					<HeroSlide />
+					{isMobile ? (<Searchbar />) : ''}
+					{isMobile ? (
+						<div className="category-dropdown">
+							<button className="category-dropdown-btn" onClick={toggleDropdown}>
+								<span className="disc"></span>
+								<label>{currentCategory.title}</label>
+							</button>
+							{showDropdown && (
+								<ul className="dropdown-list">
+									{categories.map((category) => (
+										<li key={category.value}
+											onClick={() => {
+												setCurrentCategory(category);
+												toggleDropdown();
+											}}>
+											{category === currentCategory && <span className="disc"></span>}
+											{category.title}
+										</li>
+									))}
+								</ul>
+							)}
+						</div>
+					) : (
+						<nav className="tab-nav">
+							<ul>
+								{categories.map((category) => (
+									<li key={category.value}
+										className="tab"
+										style={category.title == currentCategory.title ? { listStyleType: 'disc' } : null}
+										onClick={() => { setCurrentCategory(category) }}>
+										{category.title}
+									</li>
+								))}
 
-					</ul>
-				</nav>
+							</ul>
+						</nav>
+					)}
+					<section className='movies-display'>
+						<div className="movie-container">
+							{movieList.map(movie => {
+								return <MovieCard
+									key={movie.id}
+									movie={movie}
+									isFav={isFav(favs, null, movie.id)}
+								/>
+							})}
+						</div>
+						<button className='load-more-btn'
+							onClick={() => { loadMore(); }}>
+							Load More
+						</button>
+					</section>
+					<BackToTopButton />
+				</>
 			)}
-			<section className='movies-display'>
-				<div className="movie-container">
-					{movieList.map(movie => {
-						return <MovieCard
-							key={movie.id}
-							movie={movie}
-							isFav={isFav(favs, null, movie.id)}
-						/>
-					})}
-				</div>
-				<button className='load-more-btn'
-					onClick={() => { loadMore(); }}>
-					Load More
-				</button>
-			</section>
 		</main>
 	);
 };

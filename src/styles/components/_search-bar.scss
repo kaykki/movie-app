@@ -62,17 +62,28 @@
 // new searchbar - can be edited!
 .search-container {
     position: relative;
+    padding: 1rem;
+
+    @media (min-width: 43.75em) {
+        padding: 0;
+    }
 }
 
 .search-input {
     width: 100%;
+    height: 3rem;
     padding: 0.625rem;
     box-sizing: border-box;
+    border-radius: 0.5rem;
+
+    @media (min-width: 43.75em) {
+        
+    }
 }
 
 .search-button {
     position: absolute;
-    right: 0;
+    right: 1rem;
     top: 0;
     bottom: 0;
     background: none;
