@@ -89,6 +89,7 @@ const PageHome = () => {
 			: (
 				<>
 					<HeroSlide />
+					{isMobile ? (<Searchbar />) : ''}
 					{isMobile ? (
 						<div className="category-dropdown">
 							<button className="category-dropdown-btn" onClick={toggleDropdown}>
