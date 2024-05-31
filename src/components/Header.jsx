@@ -7,6 +7,7 @@ import Searchbar from './Searchbar';
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const toggleNav = () => {
         setShowNav(!showNav);
@@ -19,6 +20,19 @@ const Header = () => {
     }
 
     useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 700);
+		};
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
+    useEffect(() => {
         let mediaQuery = window.matchMedia('(min-width: 1040px)');
         mediaQuery.addEventListener('change', isDesktop);
 
@@ -28,7 +42,8 @@ const Header = () => {
     return (
         <header className={showNav ? 'show' : ''}>
             <h1><Link className="logo" to="/">{appTitle}</Link></h1>
-            <Searchbar />
+            {isMobile ? '' : (<Searchbar />)}
+            
             <button className="btn-main-nav"
                 onClick={toggleNav}>
                 <span className="hamburger-icon">
