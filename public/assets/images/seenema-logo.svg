@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.81 301.29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c696c4;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        font-family: AcuminVariableConcept, 'Acumin Variable Concept';
+        font-size: 83.48px;
+        font-variation-settings: 'wght' 194, 'wdth' 100, 'slnt' 0;
+      }
+
+      .cls-4, .cls-3 {
+        fill: #c796c4;
+      }
+
+      .cls-2 {
+        fill: #f1f2f2;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="495.81" height="13.07"/>
+  <rect class="cls-1" y="36.23" width="495.81" height="13.07"/>
+  <rect class="cls-1" x="10.89" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="55.08" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="99.26" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="143.45" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="187.64" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="231.82" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="276.01" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="320.19" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="364.38" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="408.49" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="452.68" y="0" width="5.81" height="49.31"/>
+  <rect class="cls-1" y="251.98" width="495.81" height="13.07"/>
+  <rect class="cls-1" y="288.22" width="495.81" height="13.07"/>
+  <rect class="cls-1" x="10.89" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="55.08" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="99.26" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="143.45" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="187.64" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="231.82" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="276.01" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="320.19" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="364.38" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="408.49" y="251.98" width="5.81" height="49.31"/>
+  <rect class="cls-1" x="452.68" y="251.98" width="5.81" height="49.31"/>
+  <g>
+    <text class="cls-4" transform="translate(240.49 139.71)"><tspan class="cls-5" x="0" y="0">S</tspan><tspan x="49.34" y="0">EE</tspan></text>
+    <text class="cls-4" transform="translate(236.13 228.74)"><tspan x="0" y="0">NEMA</tspan></text>
+    <g>
+      <g>
+        <ellipse class="cls-2" cx="182.5" cy="150.64" rx="46.6" ry="80.97"/>
+        <ellipse class="cls-3" cx="176.72" cy="161.74" rx="23.3" ry="40.49"/>
+        <ellipse class="cls-2" cx="184.63" cy="126.24" rx="11.81" ry="20.52"/>
+      </g>
+      <g>
+        <ellipse class="cls-2" cx="77.92" cy="150.64" rx="46.6" ry="80.97"/>
+        <ellipse class="cls-3" cx="63.54" cy="161.74" rx="23.3" ry="40.49"/>
+        <ellipse class="cls-2" cx="69.88" cy="122.75" rx="11.81" ry="20.52"/>
+      </g>
+    </g>
+  </g>
+</svg>
