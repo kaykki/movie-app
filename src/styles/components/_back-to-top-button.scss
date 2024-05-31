@@ -2,18 +2,17 @@
 
 .back-to-top-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #c996cc;
-    color: #ffffff;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: $primary-color;
+    color: $background-color;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     cursor: pointer;
     z-index: 999;
 }
 
 .back-to-top-btn:hover {
-    background-color: #ffffff;
-    color: #c996cc;
+    color: $secondary-color;
 }
