@@ -3,5 +3,14 @@
 .btn-favourite {
     background-color: transparent;
     border: none;
+    border-radius: 0;
     color: $primary-color;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    img {
+        width: 2rem;
+    }
 }

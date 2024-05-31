@@ -9,14 +9,16 @@
     border-radius: 1rem;
     transition-delay: all 0.5s;
 
-    img{
-        border-radius: 1rem;
-    }
+   
 
     .movie-poster {
         height: 22.5rem;
         border-radius: 1rem;
         position: relative;
+
+        img{
+            border-radius: 1rem;
+        }
     }
 
     .movie-poster:hover {
@@ -93,16 +95,27 @@
 }
 
 .movie-info {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 3rem;
     color: $primary-color;
-    font-size: 1.75rem;
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     p {
-        font-size: 1rem;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+    }
+
+    @media (min-width: 55em) {
+        h3 {
+            font-size: 1.5rem;
+        }
+    
+        p {
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
     }
 }
