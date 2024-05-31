@@ -1,0 +1,16 @@
+@use '../base/settings' as *;
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: $background-color;
+    width: 100%;
+    height: calc(100vh - 6.25rem);
+    z-index: 2;
+
+    img {
+        width: 20rem;
+    }
+}

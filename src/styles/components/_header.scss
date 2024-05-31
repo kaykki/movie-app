@@ -1,9 +1,57 @@
 @use '../base/settings' as *;
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: $background-color;
+	position: fixed;
+	height: 6.25rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: $background-color;
+	font-size: 2rem;
+	box-shadow: 0.1rem 0.1rem 0.5rem $primary-color;
+	z-index: 99;
+
+	h1 {
+		font-size: 1rem;
+	}
+
+	@media(min-width: 26.25em) {
+
+		padding: 1rem 2rem;
+	}
+	@media(min-width: 37.5em) {
+
+		padding: 1rem 3rem;
+	}
+	@media(min-width: 65em) {
+
+		padding: 1rem 1em;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+
+	@media(min-width: 80em) {
+
+		padding: 1rem 10rem;
+	}
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	img {
+		width: 5rem;
+	}
+
+	 &:hover {
+		h1 {
+			color: $secondary-color;
+		}
+	 }
 }

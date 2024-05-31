@@ -1,0 +1,53 @@
+@use '../base/settings' as *;
+
+.favourites {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+
+    @media (min-width: 55em) {
+        font-size: 1.75rem;
+        gap: 3rem;
+    }
+
+    .no-favs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $primary-color;
+        width: 70%;
+
+        @media (min-width: 55em) {
+            font-size: 2rem;
+            gap: 5rem;
+            width: 45%;
+        }
+
+        img {
+            width: 10rem;
+
+            @media (min-width: 55em) {
+                width: 20rem;
+            }
+        }
+    }
+
+    .fav-movies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+
+        h2 {
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
