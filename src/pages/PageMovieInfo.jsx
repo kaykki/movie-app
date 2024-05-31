@@ -71,7 +71,7 @@ function MovieInfo() {
         fetchCast();
 
 
-    }, []);
+    }, [id]);
 
     const settings = {
         className: "center",
