@@ -2,22 +2,26 @@
 
 header {
 	position: fixed;
-	height: 9.375rem;
+	height: 6.25rem;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	padding: 1rem;
 	align-items: center;
 	flex-wrap: wrap;
-	padding: 1rem 4rem;
 	background-color: $background-color;
 	font-size: 2rem;
+	box-shadow: 0.1rem 0.1rem 0.5rem $primary-color;
 	z-index: 99;
+
+	h1 {
+		font-size: 1rem;
+	}
 
 	@media(min-width: 65em) {
 
 		flex-wrap: nowrap;
-		align-items: baseline;
+		align-items: center;
 		justify-content: space-between;
-		box-shadow: 0.1rem 0.1rem 0.5rem $primary-color;
 	}
 }
