@@ -12,10 +12,10 @@ import Cast from '../components/Cast';
 
 function MovieInfo() {
 
-    const { id }                    = useParams();
-    const [movie, setMovie]         = useState(null);
+    const { id } = useParams();
+    const [movie, setMovie] = useState(null);
     const [movieCast, setMovieCast] = useState(null);
-    const [isMobile, setIsMobile]   = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const favs = useSelector((state) => state.favs.items);
 
@@ -95,38 +95,38 @@ function MovieInfo() {
         ]
     };
 
-  return (
-    <div>
-  {movie && movieCast ? (
-    <div>
-    <InfoCard 
-      key={movie.id}
-      movie={movie}
-      isFav={isFav(favs, null, movie.id)}
-    />
-    <section className='cast'>
-      <h2>Cast</h2>
-      {isMobile ? (
-        <div className='non-slider-container'>
-          {movieCast.cast.slice(0, 8).map(member => (
-            <Cast member={member} avatar={avatar} key={member.id}/>
-          ))}
+    return (
+        <div>
+            {movie && movieCast ? (
+                <div>
+                    <InfoCard
+                        key={movie.id}
+                        movie={movie}
+                        isFav={isFav(favs, null, movie.id)}
+                    />
+                    <section className='cast'>
+                        <h2>Cast</h2>
+                        {isMobile ? (
+                            <div className='non-slider-container'>
+                                {movieCast.cast.slice(0, 8).map(member => (
+                                    <Cast member={member} avatar={avatar} key={member.id} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className='slider-container'>
+                                <Slider {...settings}>
+                                    {movieCast.cast.slice(0, 10).map(member => (
+                                        <Cast member={member} avatar={avatar} key={member.id} />
+                                    ))}
+                                </Slider>
+                            </div>
+                        )}
+                    </section>
+                </div>
+            ) : (
+                <p>No movie to display.</p>
+            )}
         </div>
-      ) : (
-        <div className='slider-container'>
-          <Slider {...settings}>
-          {movieCast.cast.slice(0, 10).map(member => (
-            <Cast member={member} avatar={avatar} key={member.id}/>
-          ))}
-          </Slider>
-        </div>
-      )}
-    </section>
-  </div>
-  ) : (
-    <p>No movie to display.</p>
-  )}
-</div>
     )
 }
 export default MovieInfo
