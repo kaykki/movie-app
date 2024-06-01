@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { appTitle } from "../global/global"
 import theatreImage from "../images/theatre.jpg";
 import  TmdbIcon  from "../images/Tmdb-logo.svg";
+import { SocialIcon } from 'react-social-icons'
+
 
 const PageAbout = () => {
 
@@ -20,24 +22,31 @@ const PageAbout = () => {
                     This application was created for educational purposes only by; 
                         <div className="developers">
                             <article>
-                                <p>Kaki</p> 
-                                <p><a href="www.linkedin.com/">Linkedin</a>  
-                                <a href="www.github.com/">Github</a></p>
+                                <p>Kaki Kagatan</p> 
+                                <p>
+                                <SocialIcon url="https://www.linkedin.com/in/kaki-kagatan-a2ab5a18a/" />  
+                                <SocialIcon url="https://github.com/kaykki" bgColor="#C996CC" />
+                                </p>
                             </article>
                             <article>
-                                <p>Danny</p> 
-                                <p><a href="www.linkedin.com/">Linkedin</a>  
-                                <a href="www.github.com/">Github</a></p>
+                                <p>Danny Kim</p> 
+                                <p><SocialIcon url="https://www.linkedin.com/in/yasin-colak-a95980133/" /> 
+                                <SocialIcon url="https://github.com/dannykim113" bgColor="#C996CC" />
+                                </p>
                             </article>
                             <article>
-                                <p>Yasin</p> 
-                                <p><a href="www.linkedin.com/">Linkedin</a>  
-                                <a href="www.github.com/">Github</a></p>
+                                <p>Yasin Colak</p> 
+                                <p>
+                                <SocialIcon url="https://www.linkedin.com/in/yasin-colak-a95980133/" />  
+                                <SocialIcon url="https://github.com/yasincoolak" bgColor="#C996CC" />
+                                </p>
                             </article>
                             <article>
-                            <p>Kyle</p> 
-                            <p><a href="www.linkedin.com/">Linkedin</a>  
-                                <a href="www.github.com/">Github</a></p>
+                            <p>Kyle Thomson</p> 
+                            <p>
+                            <SocialIcon url="https://www.linkedin.com/in/kyle-thomson-a067002a3/" />  
+                            <SocialIcon url="https://github.com/KyleThomsonn" bgColor="#C996CC" />
+                            </p>
                             </article>
                            
                         </div> 
