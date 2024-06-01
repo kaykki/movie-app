@@ -20,10 +20,6 @@ function MovieInfo() {
     const favs = useSelector((state) => state.favs.items);
 
     useEffect(() => {
-        document.title = "Movie Information | " + appTitle;
-    }, []);
-
-    useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 700);
         };
@@ -45,8 +41,8 @@ function MovieInfo() {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-                console.log(data)
                 setMovie(data);
+                document.title = `${data.title} | ${appTitle}`;
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }
@@ -60,7 +56,6 @@ function MovieInfo() {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-                console.log(data)
                 setMovieCast(data);
             } catch (error) {
                 console.error('Error fetching data: ', error);
@@ -69,7 +64,6 @@ function MovieInfo() {
 
         fetchMovie();
         fetchCast();
-
 
     }, [id]);
 
