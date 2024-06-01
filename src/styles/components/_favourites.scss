@@ -2,11 +2,12 @@
 
 .favourites {
     display: flex;
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem 1rem;
     gap: 2rem;
-    padding: 1rem;
 
     @media (min-width: 55em) {
         font-size: 1.75rem;
@@ -18,16 +19,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: calc(100vh - 6.25rem);
         gap: 2rem;
         font-size: 1.5rem;
         font-weight: bold;
         color: $primary-color;
-        width: 70%;
+        width: 50%;
 
         @media (min-width: 55em) {
-            font-size: 2rem;
+            font-size: 1.75rem;
             gap: 5rem;
-            width: 45%;
+            width: 25%;
         }
 
         img {

@@ -48,7 +48,7 @@ const Header = () => {
                 <h1>{appTitle}</h1>
             </Link>
 
-            {isMobile ? '' : (<Searchbar />)}
+            {!isMobile && (<Searchbar />)}
 
             <button className="btn-main-nav"
                 onClick={toggleNav}>

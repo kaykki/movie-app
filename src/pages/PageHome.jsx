@@ -4,10 +4,10 @@ import MovieCard from '../components/MovieCard';
 import HeroSlide from '../components/HeroSlide';
 import isFav from '../utilities/isFav';
 import { useSelector } from 'react-redux';
-import { appTitle, categories } from "../global/global";
-import Searchbar from '../components/Searchbar';
+import { appTitle } from "../global/global";
 import BackToTopButton from '../components/BackToTopButton';
 import Loading from '../components/Loading';
+import CategoryMenu from '../components/CategoryMenu';
 
 const PageHome = () => {
 
@@ -15,28 +15,12 @@ const PageHome = () => {
 	const [movieList, setMovieList] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [currentCategory, setCurrentCategory] = useState({
-		title: "Now Playing",
-		value: "now_playing",
-		url: `https://api.themoviedb.org/3/movie/now_playing?language=en-US`,
+		title: "Popular",
+        value: "popular",
+        url:   `https://api.themoviedb.org/3/movie/popular?language=en-US`,
 	});
 
-	const [isMobile, setIsMobile] = useState(false);
-	const [showDropdown, setShowDropdown] = useState(false);
-
 	const favs = useSelector((state) => state.favs.items);
-
-	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(window.innerWidth < 700);
-		};
-		handleResize();
-
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
 
 	useEffect(() => {
 		document.title = "Home | " + appTitle;
@@ -54,7 +38,7 @@ const PageHome = () => {
 
 			setTimeout(() => {
 				setLoading(false);
-			  }, "2000");
+			}, "1000");
 		}
 
 		fetchMovies();
@@ -78,72 +62,36 @@ const PageHome = () => {
 		return newPage;
 	}
 
-	const toggleDropdown = () => {
-		setShowDropdown(!showDropdown);
+	const chooseCategory = (category) => {
+		setCurrentCategory(category);
 	}
 
 	return (
 		<main>
-			{loading 
-			? (<Loading />) 
-			: (
-				<>
-					<HeroSlide />
-					{isMobile ? (<Searchbar />) : ''}
-					{isMobile ? (
-						<div className="category-dropdown">
-							<button className="category-dropdown-btn" onClick={toggleDropdown}>
-								<span className="disc"></span>
-								<label>{currentCategory.title}</label>
+			{loading
+				? (<Loading />)
+				: (
+					<>
+						<HeroSlide />
+						<CategoryMenu currentCategory={currentCategory} chooseCategory={chooseCategory}/>
+						<section className='movies-display'>
+							<div className="movie-container">
+								{movieList.map(movie => {
+									return <MovieCard
+										key={movie.id}
+										movie={movie}
+										isFav={isFav(favs, null, movie.id)}
+									/>
+								})}
+							</div>
+							<button className='load-more-btn'
+								onClick={() => { loadMore(); }}>
+								Load More
 							</button>
-							{showDropdown && (
-								<ul className="dropdown-list">
-									{categories.map((category) => (
-										<li key={category.value}
-											onClick={() => {
-												setCurrentCategory(category);
-												toggleDropdown();
-											}}>
-											{category === currentCategory && <span className="disc"></span>}
-											{category.title}
-										</li>
-									))}
-								</ul>
-							)}
-						</div>
-					) : (
-						<nav className="tab-nav">
-							<ul>
-								{categories.map((category) => (
-									<li key={category.value}
-										className="tab"
-										style={category.title == currentCategory.title ? { listStyleType: 'disc' } : null}
-										onClick={() => { setCurrentCategory(category) }}>
-										{category.title}
-									</li>
-								))}
-
-							</ul>
-						</nav>
-					)}
-					<section className='movies-display'>
-						<div className="movie-container">
-							{movieList.map(movie => {
-								return <MovieCard
-									key={movie.id}
-									movie={movie}
-									isFav={isFav(favs, null, movie.id)}
-								/>
-							})}
-						</div>
-						<button className='load-more-btn'
-							onClick={() => { loadMore(); }}>
-							Load More
-						</button>
-					</section>
-					<BackToTopButton />
-				</>
-			)}
+						</section>
+						<BackToTopButton />
+					</>
+				)}
 		</main>
 	);
 };
