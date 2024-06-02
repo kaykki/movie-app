@@ -38,7 +38,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={showNav && 'show'}>
+        <header className={showNav ? 'show' : ''}>
             <Logo />
             {!isMobile && (<Searchbar />)}
             <button className="btn-main-nav"

@@ -9,7 +9,9 @@
     border-radius: 1rem;
     transition-delay: all 0.5s;
 
-   
+    &:hover {
+        transform: scale(1.01);
+    }
 
     .movie-poster {
         height: 22.5rem;
@@ -17,7 +19,10 @@
         position: relative;
 
         img{
+            width: 100%;
+            height: 100%;
             border-radius: 1rem;
+            object-fit: cover;
         }
     }
 
@@ -50,10 +55,6 @@
             height: 37.5rem;
         }
     }
-}
-
-.movie-card:hover {
-    transform: scale(1.01);
 }
 
 .hover-movie {

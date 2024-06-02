@@ -1,7 +1,12 @@
 import { currentDate } from "../utilities/utilities";
 
+// Movie App title
+export const appTitle = "Seenema";
+
+// Movie App authors
 export const authors = "Kaki, Danny, Yasin, Kyle";
 
+// Movie App homepage categories
 export const categories = 
 [
     {
@@ -26,4 +31,3 @@ export const categories =
     }                
 ];
 
-export const appTitle = "Seenema";

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { categories } from "../global/global";
 import Searchbar from './Searchbar';
 
-function CategoryMenu({currentCategory, chooseCategory}) {
+function CategoryMenu({currentCategory, chooseCategory, resetPage}) {
 
     const [isMobile, setIsMobile]         = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -25,9 +25,9 @@ function CategoryMenu({currentCategory, chooseCategory}) {
 	}
     return (
         <nav>
-            {isMobile ? (<Searchbar />) : ''}
+            {isMobile && <Searchbar />}
             {isMobile ? (
-                <div className="category-dropdown">
+                <nav className="category-dropdown">
                     <button className="category-dropdown-btn" onClick={toggleDropdown}>
                         <span className="disc"></span>
                         <label>{currentCategory.title}</label>
@@ -38,16 +38,17 @@ function CategoryMenu({currentCategory, chooseCategory}) {
                                 <li key={category.value}
                                     onClick={() => {
                                         chooseCategory(category);
+                                        resetPage();
                                         toggleDropdown();
                                     }}
-                                    onBlur={() => {toggleDropdown()}}
-                                    className={category.title == currentCategory.title && "category-dropdown-btn"}>
+                                    
+                                    className={category.title == currentCategory.title ? "category-dropdown-btn" : ''}>
                                     {category.title}
                                 </li>
                             ))}
                         </ul>
                     )}
-                </div>
+                </nav>
             ) : (
                 <nav className="tab-nav">
                     <ul>
@@ -55,7 +56,7 @@ function CategoryMenu({currentCategory, chooseCategory}) {
                             <li key={category.value}
                                 className="tab"
                                 style={category.title == currentCategory.title ? { listStyleType: 'disc' } : null}
-                                onClick={() => { chooseCategory(category) }}>
+                                onClick={() => { chooseCategory(category); resetPage(); }}>
                                 {category.title}
                             </li>
                         ))}
