@@ -33,7 +33,7 @@ function InfoCard({ movie, isFav }) {
                     </ul>
 
                     <div className='info-rating'>
-                        <p>{movie.vote_average.toFixed(1)}</p>
+                    <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
                     </div>
 
                     {isFav ?
