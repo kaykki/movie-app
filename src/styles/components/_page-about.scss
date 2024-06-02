@@ -8,7 +8,7 @@
     
     
     p{
-        margin: 1rem 5rem;
+        margin: 1rem 3rem;
     }
     .info-wrapper{
         text-align: center;
@@ -29,6 +29,7 @@
             margin: 1rem .5rem;
             padding: 0;
             width: fit-content;
+            color: white;
         }
     }
 
@@ -49,12 +50,12 @@
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
+            margin: auto 3rem;
             a, p{
-                margin: 1rem .5rem;
+                margin: .5rem .5rem;
             }
-            
-            
         }
+        
     }
 
     @media (min-width: 60rem) {
@@ -68,12 +69,13 @@
         .info-wrapper{
             
             text-align: center;
+            padding: 0 6rem;
         }
         p{
-            margin: 2rem 0;
+            margin: 1rem 0;
             text-align: center;
             width: 100%;
-            padding: 0 10rem;
+            
         }
         
         .theatre-image{
