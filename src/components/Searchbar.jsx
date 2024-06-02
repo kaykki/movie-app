@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
-import missingPoster from  '../images/missing-poster.png'
+import missingPoster from '../images/missing-poster.png'
 
 function Searchbar() {
 
@@ -8,7 +8,6 @@ function Searchbar() {
     const [searchInput, setSearchInput] = useState('');
     const [showResults, setShowResults] = useState(false);
     const searchRef = useRef(null);
-
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -45,7 +44,6 @@ function Searchbar() {
         };
     }, [searchRef]);
 
-
     return (
         <div className="search-container" ref={searchRef}>
             <input type="text"
@@ -58,29 +56,27 @@ function Searchbar() {
             <button type="submit" className="search-button" ><i className="fas fa-search"></i></button>
 
             {showResults && (
-                <div className="search-results">
-                    <ul>
-                        {movieList.length == 0 && (
-                            <li>
-                                <h1>No results...</h1>
-                            </li>
-                        )}
-                        {movieList.map((movie) => (
-                            <li key={movie.id}>
-                                <Link to={`/movieinfo/${movie.id}`} onClick={() => setShowResults(false)}>
-                                    <img
-                                        src={movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : missingPoster}
-                                        alt={movie.title}
-                                    />
-                                    <div className='result-description'>
-                                        <h1>{movie.title}</h1>
-                                        <p>{movie.release_date ? movie.release_date : 'Upcoming'}</p>
-                                    </div>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <ul className="search-results">
+                    {movieList.length == 0 && (
+                        <li>
+                            <h1>No results...</h1>
+                        </li>
+                    )}
+                    {movieList.map((movie) => (
+                        <li key={movie.id}>
+                            <Link to={`/movieinfo/${movie.id}`} onClick={() => setShowResults(false)}>
+                                <img
+                                    src={movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : missingPoster}
+                                    alt={movie.title}
+                                />
+                                <div className='result-description'>
+                                    <h1>{movie.title}</h1>
+                                    <p>{movie.release_date ? movie.release_date : 'Upcoming'}</p>
+                                </div>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             )}
         </div >
     )

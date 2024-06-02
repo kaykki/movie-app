@@ -1,33 +1,61 @@
 @use '../base/settings' as *;
 
-.hero-slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: auto;
-    overflow: hidden;
+.carousel {
+    .slide {
+        position: relative;
+        @media (min-width: 55em) {
+            img {
+                height: calc(100vh - 6.25rem);
+                object-fit: cover;
+            }
+        }
+    }
 
-    @media (min-width: 55em) {
-        height: calc(100vh - 6.25rem);
+    .indicator {
+        width: 2rem;
+        height: 0.3rem;
+        background-color: $primary-color;
+        opacity: 0.5;
+        margin-bottom: 0.5rem;
+        border-radius: 0.2rem;
+        cursor: pointer;
+
+        @media (min-width: 43.75em) {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 55em) {
+            height: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 70em) {
+            width: 3rem;
+            height: .7rem;
+            margin-bottom: 3rem;
+        }
+    }
+    
+    .active {
+        background-color: $primary-color;
+        opacity: 1;
+    }
+    
+    .control-dots {
+        left: 2rem;
+        display: flex;
+        gap: 0.5rem;
+
+        @media (min-width: 55em) {
+            left: 5rem;
+        }
+        
+        @media (min-width: 70em) {
+            left: 8rem;
+        }
     }
 }
-
-.movie-slider {
-    display: flex;
-    transition: transform ease-out 0.5s;
-}
-
-.movie-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-    align-items: center;
-    position: relative;
-    min-width: 100%;
-}
+    
 
 .hero-overlay {
     position: absolute;
@@ -35,12 +63,14 @@
     height: 100%;
     background-color: $background-color;
     opacity: 0.6;
-    z-index: 2;
 }
 
 .movie-infor {
     position: absolute;
     left: 1rem;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,100 +82,97 @@
     h2 {
         color: $secondary-color;
     }
-    
-    @media (min-width: 55em) {
-        left: 10rem;
-        bottom: 15rem;
-        align-items: baseline;
-        width: 40%;
 
-        h2 {
-            font-size: 3rem;
-        }
+    img {
+        width: 2rem;
+    }
 
-        p {
-            font-size: 1.2rem;
+    .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 3rem;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $primary-color;
+        background-color: $secondary-color;
+        border: 0.15rem solid $primary-color;
+        padding: 1rem;
+        border-radius: 50%;
+
+        @media (min-width: 55rem) {
+            height: 4rem;
+            width: 4rem;
+            font-size: 1.5rem;
         }
     }
-}
 
-.rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    width: 4rem;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: $primary-color;
-    background-color: $secondary-color;
-    border: 0.15rem solid $primary-color;
-    padding: 1rem;
-    border-radius: 50%;
-}
+    .release-date {
+        font-size: 0.8rem;
 
-.movie-title {
-    font-size: 1rem;
+        @media (min-width: 55rem) {
+            font-size: 1.1rem;
+        }
+        @media (min-width: 70rem) {
+            font-size: 1.3rem;
+        }
+    }
+
+    .movie-title {
+        font-size: 1rem;
+    
+        @media (min-width: 55rem) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .movie-overview {
+        @media (min-width: 55rem) {
+            width: 50%;
+            font-size: 1.1rem;
+        }
+        @media (min-width: 70rem) {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (min-width: 37.5em) {
+        align-items: start;
+        text-align: start;
+        left: 2rem;
+    }
 
     @media (min-width: 55rem) {
-        font-size: 2.5rem;
+        left: 5rem;
+        justify-content: end;
+        bottom: 5rem;
+    }
+
+    @media (min-width: 70rem) {
+        gap: 2rem;
+        left: 8rem;
+        bottom: 8rem;
     }
 }
 
-.movie-infor a {
+.more-info-btn {
     background-color: $primary-color;
     color: $background-color;
     width: fit-content;
-    padding: 1rem;
-    border-radius: 1rem;
-    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
 
+    &:hover {
+        color: $secondary-color;
+    }
 
     @media (min-width: 55rem) {
-        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
     }
-}
-
-.movie-infor a:hover {
-    color: #C996CC;
-    background-color: #fff;
-}
-
-
-
-.slideshow-container .movie-overview {
-    font-size: 1.125rem;
-    margin: 0.5rem 3rem;
-}
-
-button.prev,
-button.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 1rem;
-    color: #C996CC;
-    font-weight: bold;
-    font-size: 1.5rem;
-    border: none;
-    background-color: transparent;
-    border-radius: 50%;
-    user-select: none;
-    transform: translateY(-50%);
-}
-
-button.next {
-    right: 0.825rem;
-}
-
-button.prev {
-    left: 0.825rem;
-}
-
-button:hover {
-    color: #000000;
 }
 

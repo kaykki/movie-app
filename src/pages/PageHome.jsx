@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 import HeroSlide from '../components/HeroSlide';
@@ -11,9 +10,9 @@ import CategoryMenu from '../components/CategoryMenu';
 
 const PageHome = () => {
 
-	const [loading, setLoading] = useState(false);
-	const [movieList, setMovieList] = useState([]);
-	const [currentPage, setCurrentPage] = useState(1);
+	const [loading, setLoading] 				= useState(false);
+	const [movieList, setMovieList] 			= useState([]);
+	const [currentPage, setCurrentPage] 		= useState(1);
 	const [currentCategory, setCurrentCategory] = useState({
 		title: "Popular",
 		value: "popular",

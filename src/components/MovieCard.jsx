@@ -29,7 +29,7 @@ function MovieCard({ movie, isFav }) {
                      className="movie-image" />
                 <div className='hover-movie' 
                      style={ isHovered ? {opacity: 1} : {opacity: 0}}>
-                    <p>{movie.overview ? movie.overview.slice(0, 175) : 'No description found...'}</p>
+                    <p>{movie.overview ? movie.overview.slice(0, 165) : 'No description found'}...</p>
                     <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
                 </div>
             </div>

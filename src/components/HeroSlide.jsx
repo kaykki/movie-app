@@ -1,119 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import FavButton from './FavButton';
-import { addFav, deleteFav } from '../features/favs/favsSlice';
-import { useDispatch } from 'react-redux';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-function HeroSlide({isFav }) {
-    const [movies, setMovies] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [translateValue, setTranslateValue] = useState(0);
-
-    const dispatch = useDispatch();
-
-    function handleFavClick(addToFav, obj) {
-        if (addToFav === true) {
-            dispatch(addFav(obj));
-        } else {
-            dispatch(deleteFav(obj));
-        }
-    }
+function HeroSlide() {
+    const [movieList, setMovieList] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const fetchNowPlaying = async () => {
-            const apiKey = '2e0de9d682ff6404a82153a83be192cf';
-            const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
-            const options = {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'accept': 'application/json'
-                }
-            };
-
-            try {
-                const response = await fetch(url, options);
-                const { results } = await response.json();
-                setMovies(results.slice(0, 10));
-            } catch (error) {
-                console.error('Error fetching data: ', error);
-            }
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 600);
         };
+        handleResize();
 
-        fetchNowPlaying();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            slideRight();
-        }, 6000);
-        return () => clearInterval(interval);
-    }, [currentIndex, movies.length]);
+        const fetchMovies = async () => {
+            const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US', {
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjkzZTM0ZGNiZjg1NGEyZGMxYzE1ZDlkNDk2ODA2MSIsInN1YiI6IjY2MzUyN2QzMzU4ZGE3MDEyYTU1NjMzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WAbBbeAHgieYj7ZUUoUsFfA5cUTRs3ayB3NKYkhQxFM'
+                }
+            });
 
-    const slideWidth = () => {
-        return document.querySelector('.movie-hero').clientWidth;
-    };
-
-    const slideRight = () => {
-        if (currentIndex === movies.length - 1) {
-            setCurrentIndex(0);
-            setTranslateValue(0);
-        } else {
-            setCurrentIndex(currentIndex + 1);
-            setTranslateValue(translateValue - slideWidth());
+            let data = await response.json();
+            setMovieList(data.results.slice(0, 5));
         }
-    };
-
-    const nextSlide = () => {
-        slideRight();
-    };
-
-    const prevSlide = () => {
-        if (currentIndex === 0) {
-            setCurrentIndex(movies.length - 1);
-            setTranslateValue(-(movies.length - 1) * slideWidth());
-        } else {
-            setCurrentIndex(currentIndex - 1);
-            setTranslateValue(translateValue + slideWidth());
-        }
-    }
+        fetchMovies();
+    }, []);
 
     return (
-        <section className="hero-slide">
-            <div className="movie-slider"
-                style={{
-                    transform: `translateX(${translateValue}px)`,
-                    transition: 'transform ease-out 0.5s'
+        <div className="box">
+            <Carousel
+                useKeyboardArrows={false}
+                showThumbs={false}
+                showStatus={false}
+                autoPlay
+                infiniteLoop
+                showIndicators
+                renderIndicator={(clickHandler, isSelected, index) => {
+                    return (
+                        <>
+                            {!isMobile && <li
+                            onClick={clickHandler}
+                            className={`indicator ${isSelected ? "active" : ""}`}
+                            key={index}
+                            role="button"
+                            />}
+                        </>
+                    );
                 }}>
-                {movies.map((movie) => (
-                    <div key={movie.id} className="movie-hero">
-                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                            alt={movie.title} />
-                        <div className='hero-overlay'></div>
+                {movieList.map((movie) => (
+                    <div className="slide" key={movie.id}>
                         <div className="movie-infor">
-                            <div className='rating'>
+                            {!isMobile && <div className='rating'>
                                 <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
-                            </div>
+                            </div>}
+
                             <h2 className="movie-title">{movie.title}</h2>
-                            <p>{movie.release_date}</p>
-                            {window.innerWidth > 600 && <p className="movie-overview">{movie.overview}</p>}
+                            <p className='release-date'>{movie.release_date}</p>
+                            {!isMobile && (
+                                <p className="movie-overview">{movie.overview}</p>
+                            )}
                             <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
-                            {isFav ?
-                                <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> 
-                                :
-                                <FavButton movie={movie} handleFavClick={handleFavClick} />
-                            }
                         </div>
+                        <div className='hero-overlay'></div>
+                        <img alt={movie.title} src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
                     </div>
                 ))}
-            </div>
-            <button onClick={prevSlide} className="prev">
-                &#10094;
-            </button>
-            <button onClick={nextSlide} className="next">
-                &#10095;
-            </button>
-        </section>
+            </Carousel>
+        </div>
     )
 };
 
