@@ -1,138 +1,94 @@
 @use '../base/settings' as *;
 
-// .search-container {
-//     position: relative;
-//     display: none;
-
-//     @media (min-width: 43.75em) {
-//         display: flex;
-//     }
-// }
-
-// .search-input {
-//     padding: .75rem;
-//     border-radius: 1rem;
-//     z-index: 99;
-
-//     @media (min-width: 65rem) {}
-
-// }
-
-// .search-button {
-//     background: none;
-//     border: none;
-//     color: $primary-color;
-//     font-size: 1.5rem;
-//     position: absolute;
-//     right: .5rem;
-//     top: .4rem;
-
-// }
-
-// .search-results {
-//     position: absolute;
-//     top: 0;
-//     border-radius: 1.5625rem;
-//     padding: 3.5rem 2rem 0.5rem 2rem;
-//     background-color: white;
-//     font-size: 1.5rem;
-//     z-index: 98;
-//     max-height: 40rem;
-//     overflow-y: auto;
-// }
-
-// .search-results ul {
-//     padding: 0;
-// }
-
-// .search-results::-webkit-scrollbar {
-//     -webkit-appearance: none;
-//     width: 7px;
-// }
-
-// .search-results::-webkit-scrollbar-thumb {
-//     border-radius: 4px;
-//     background-color: rgba(0, 0, 0, .5);
-//     box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-// }
-
-
-
-
-// new searchbar - can be edited!
 .search-container {
     position: relative;
     padding: 1rem;
 
     @media (min-width: 43.75em) {
+        width: 50%;
         padding: 0;
     }
-}
 
-.search-input {
-    width: 100%;
-    height: 3rem;
-    padding: 0.625rem;
-    box-sizing: border-box;
-    border-radius: 0.5rem;
-
-    @media (min-width: 43.75em) {
-        
+    .search-input {
+        position: relative;
+        width: 100%;
+        height: 3rem;
+        padding: 0.625rem;
+        box-sizing: border-box;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        z-index: 2;
+    
+        @media (min-width: 43.75em) {
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
     }
-}
 
-.search-button {
-    position: absolute;
-    right: 1rem;
-    top: 0;
-    bottom: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.625rem;
-    color: #c996cc;
+    .search-button {
+        position: absolute;
+        right: 1.5rem;
+        top: 0;
+        bottom: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: $primary-color;
+        z-index: 2;
+
+        @media (min-width: 43.75em) {
+            right: 1rem;
+        }
+    }
 }
 
 .search-results {
     position: absolute;
-    width: 100%;
+    right: 1.1rem;
+    left: 1.1rem;
     max-height: 18.75rem;
     overflow-y: auto;
-    background: #ffffff;
+    background: $secondary-color;
     border: 0.125rem solid #c996cc;
-    z-index: 1000;
-}
+    z-index: 1;
 
-.search-results ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    @media (min-width: 43.75em) {
+        right: 0.2rem;
+        left: 0.2rem;
+    }
 
-.search-results li {
-    padding: 0.625rem;
-    border-bottom: 0.125rem solid #c996cc;
-}
+    ul {
+        padding: 0;
+        margin: 0;
+    }
 
-.search-results li:last-child {
-    border-bottom: none;
-}
+    li {
+        padding: 0.625rem;
+        border-bottom: 0.125rem solid #c996cc;
 
-.search-results img {
-    width: 3.125rem;
-    height: 4.75rem;
-    margin-right: 0.625rem;
-}
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #000000;
+        font-size: 1rem;
 
-.search-results a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000000;
-    font-size: 1rem;
-}
+        &:hover {
+            background: #c996cc;
+            color: #ffffff;
+        }
+    }
 
-.search-results a:hover {
-    background: #c996cc;
-    color: #ffffff;
+    img {
+        width: 3.125rem;
+        height: 4.75rem;
+        margin-right: 0.625rem;
+    }
+
+    
 }

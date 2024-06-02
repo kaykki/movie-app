@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addFav, deleteFav } from '../features/favs/favsSlice';
-import React from 'react'
 import FavButton from './FavButton';
 import { Link } from 'react-router-dom';
 import missingPoster from '../images/missing-poster.png';

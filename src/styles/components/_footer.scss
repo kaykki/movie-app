@@ -8,7 +8,6 @@ footer {
     height: 9rem;
     color: $secondary-color;
     gap: 1rem;
-    margin-top: 5rem;
     box-shadow: 0.1rem 0.1rem 0.5rem $primary-color;
 
     h1 {
@@ -16,10 +15,10 @@ footer {
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.8rem;
 
         @media (min-width: 55em) {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
     }
 
@@ -36,6 +35,4 @@ footer {
     @media (min-width: 55em) {
         gap: 3rem;
     }
-
-
 }

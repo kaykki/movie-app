@@ -96,12 +96,11 @@ function HeroSlide({isFav }) {
                             </div>
                             <h2 className="movie-title">{movie.title}</h2>
                             <p>{movie.release_date}</p>
-                            {window.innerWidth > 600 ?
-                                <p className="movie-overview">{movie.overview}</p>
-                                : ''}
+                            {window.innerWidth > 600 && <p className="movie-overview">{movie.overview}</p>}
                             <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
                             {isFav ?
-                                <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> :
+                                <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> 
+                                :
                                 <FavButton movie={movie} handleFavClick={handleFavClick} />
                             }
                         </div>
