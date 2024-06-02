@@ -15,7 +15,7 @@
     width: 10rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     p {
         color: $primary-color;
     }
@@ -26,6 +26,10 @@
         cursor: pointer;
         position: relative;
     }
+}
+
+.cast-card:has(.cast-no-img){
+    justify-content: flex-end;
 }
 
 .non-slider-container{
@@ -43,6 +47,7 @@
     }
     
 }
+
 
 @media(min-width: 43.75em){
 .cast-card .cast-no-img {

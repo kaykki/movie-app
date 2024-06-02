@@ -15,7 +15,7 @@
     .info-backdrop{
         display: block;
         width: 100%;
-        height: 30rem;
+        height: 35rem;
         object-fit: cover;
         position: relative;
         z-index: -1;
@@ -119,10 +119,13 @@
     .full-overview{
         margin-top: 1rem;
         p{
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        @media (min-width: 43.75rem){
             font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        @media (min-width: 43.75em){
+            }
+        @media (min-width: 65em){
+            font-size: 1.2rem;
             }
         }
         @media(min-width: 105em){
