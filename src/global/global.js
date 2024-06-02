@@ -31,3 +31,5 @@ export const categories =
     }                
 ];
 
+export const APP_FOLDER_NAME = "seenema";
+

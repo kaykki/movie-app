@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { appTitle } from '../global/global';
 
 const PageNotFound = () => {
 
@@ -7,7 +8,9 @@ const PageNotFound = () => {
 	}, [])
 
 	return (
-		<div>PageNotFound</div>
+		<div className='page-not-found'>
+			<h1>Page doesn't exist!</h1>
+		</div>
 	)
 }
 
