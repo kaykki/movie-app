@@ -1,7 +1,7 @@
 import { getYear } from '../utilities/utilities';
 import { authors } from '../global/global';
 import React from 'react';
-import logo from '/assets/images/movie-logo-2.svg'
+import logo from '/assets/images/seenema-logo.svg'
 import { Link } from 'react-router-dom';
 import { appTitle } from '../global/global';
 
