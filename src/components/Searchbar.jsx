@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function Searchbar() {
@@ -74,8 +72,7 @@ function Searchbar() {
                         ))}
                     </ul>
                 </div>
-            )
-            }
+            )}
         </div >
     )
 }

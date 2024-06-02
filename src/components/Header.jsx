@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import logo from '/assets/images/movie-logo-2.svg'
+import logo from '/assets/images/seenema-logo.svg'
 import Searchbar from './Searchbar';
 import { appTitle } from '../global/global';
 
