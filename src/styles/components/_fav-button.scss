@@ -1,6 +1,8 @@
 @use '../base/settings' as *;
 
 .btn-favourite {
+    display: flex;
+    align-items: center;
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -11,6 +13,6 @@
     }
 
     img {
-        width: 2rem;
+        width: 3rem;
     }
 }

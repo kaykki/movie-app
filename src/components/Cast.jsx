@@ -1,6 +1,6 @@
-import React from 'react'
+import avatar from "../../public/assets/images/missing-cast.jpg";
 
-function Cast({ member, avatar }) {
+function Cast({ member }) {
 	return (
 		<article className='cast-card'>
 			{member.profile_path && (

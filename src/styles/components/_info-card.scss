@@ -1,100 +1,89 @@
 @use '../base/settings' as *;
 
-.movie-info-card{
+.movie-info-card {
     padding-top: 6.25rem;
     position: relative;
     display: flex;
     justify-content: center;
     color: $secondary-color;
-    h2  {
+
+    h2 {
         color: $secondary-color;
     }
+
     h3 {
         color: $secondary-color;
     }
-    .info-backdrop{
-        display: block;
+
+    
+
+    
+
+    .info-backdrop {
         width: 100%;
         height: 35rem;
         object-fit: cover;
         position: relative;
         z-index: -1;
         opacity: 0.2;
-        @media(min-width: 65em){
+
+        @media(min-width: 65em) {
             height: 40rem;
         }
-        @media(min-width: 105em){
-            height: 50rem;
+
+        @media(min-width: 105em) {
+            height: calc(100vh - 6.25rem);
         }
 
     }
 
-    .info-poster{
+    .info-poster {
         border-radius: 15px;
         height: 25rem;
         margin-left: 1rem;
+
         @media (max-width: 43.75em) {
-                display: none;
-            }
+            display: none;
+        }
+
         @media (min-width: 65em) {
             height: 32rem;
         }
+
         @media (min-width: 105em) {
             height: 40rem;
         }
-        }
-        
-    .movie-info-text {
-        position: absolute;
-        bottom: 0.1rem;
-        padding: 1.5rem;
-        @media (min-width: 43.75em){
-            max-width: 50rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 1rem;
-            top: 60%;
-            transform: translateY(-50%);
-
-        }
-
-        @media (min-width: 65em) {
-            top: 58%;
-            max-width: 55rem;
-        }
-
-        @media (min-width: 105em){
-            max-width: 60rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 1rem;
-            top: 57%;
-        }
     }
-    .movie-info-title{
-        @media (min-width: 65em){
+
+    
+
+    .movie-info-title {
+        @media (min-width: 65em) {
             font-size: 3rem;
         }
     }
-    .release-date{
+
+    .release-date {
         font-weight: bold;
-        margin-top: 1rem;
-        @media(min-width: 105em){
+
+        @media(min-width: 105em) {
             font-size: 1.5rem;
         }
     }
-    .genre-list{
+
+    .genre-list {
         display: flex;
         flex-wrap: wrap;
         padding: 0;
+
         li {
             padding-right: .5rem;
             font-size: 1rem;
+
             @media (min-width: 43.75em) {
                 font-size: 1rem;
             }
+
             @media (min-width:105em) {
                 font-size: 1.3rem;
             }
@@ -102,42 +91,82 @@
     }
 
     .info-rating {
-        display: inline-block;
         color: $primary-color;
         background-color: $secondary-color;
         font-weight: bold;
-        font-size: 1.2rem;
-        border: .15rem solid $primary-color;
-        padding: .5rem;
+        font-size: 1rem;
+        border: .1rem solid $primary-color;
+        padding: 0.5rem;
         border-radius: 50%;
     }
-    .btn-favourite{
-        img{
-            transform: translateY(25%);
-        }
-    }
-    .full-overview{
+
+    .full-overview {
         margin-top: 1rem;
-        p{
+
+        p {
             font-size: 1rem;
             margin-bottom: 1rem;
             line-height: 1.2;
-        @media (min-width: 43.75em){
-            }
-        @media (min-width: 65em){
-            font-size: 1.2rem;
+
+            @media (min-width: 43.75em) {}
+
+            @media (min-width: 65em) {
+                font-size: 1.2rem;
             }
         }
-        @media(min-width: 105em){
-            h3{
+
+        @media(min-width: 105em) {
+            h3 {
                 font-size: 1.5rem;
             }
         }
     }
 
-    @media (min-width: 105em){
-    .movie-info-title{
-        width: 40rem;
+    @media (min-width: 105em) {
+        .movie-info-title {
+            width: 40rem;
+        }
+    }
+}
+
+.movie-info-text {
+    position: absolute;
+    bottom: 0.1rem;
+    padding: 1.5rem;
+
+    @media (min-width: 43.75em) {
+        max-width: 50rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        top: 60%;
+        transform: translateY(-50%);
+    }
+
+    @media (min-width: 65em) {
+        top: 58%;
+        max-width: 55rem;
+    }
+
+    @media (min-width: 105em) {
+        max-width: 60rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        top: 57%;
+    }
+
+    .content-wrapper {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:first-of-type{
+            flex-direction: column;
+            align-items: start;
         }
     }
 }
