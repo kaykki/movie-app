@@ -1,34 +1,47 @@
 @use '../base/settings' as *;
 
-.about-wrapper{
+.about-wrapper {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    
-    
-    p{
-        margin: 1rem 5rem;
+
+
+    p {
+        margin: 1rem 3rem;
     }
-    .info-wrapper{
+
+    .info-wrapper {
         text-align: center;
     }
-    .about-text{
+
+    .about-text {
         color: $secondary-color;
+        font-size: 1rem;
     }
-    .theatre-image{
+
+    .tmdb-text {
+        color: $secondary-color;
+        font-size: 0.875rem;
+        margin-top: 2rem;
+    }
+
+    .theatre-image {
         display: none;
     }
 
-    .developers article{
+    .developers article {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         align-items: center;
-        a, p{
+
+        a,
+        p {
             margin: 1rem .5rem;
             padding: 0;
             width: fit-content;
+            color: white;
         }
     }
 
@@ -39,59 +52,90 @@
         justify-content: center;
         margin: 30px auto;
 
-        .theatre-image{
+        .theatre-image {
             display: block;
             margin-left: 3rem;
         }
 
-        .developers article{
+        .developers article {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
-            a, p{
-                margin: 1rem .5rem;
+            margin: auto 3rem;
+
+            a,
+            p {
+                margin: .5rem .5rem;
             }
-            
-            
         }
+
     }
 
     @media (min-width: 60rem) {
-        
-           flex-direction: row;
-           flex-wrap: nowrap;
-           max-width: 70rem;
-           justify-content: center;
-           margin: 30px auto;
-        
-        .info-wrapper{
-            
+
+        flex-direction: row;
+        flex-wrap: nowrap;
+        max-width: 70rem;
+        justify-content: center;
+        margin: 30px auto;
+
+        .info-wrapper {
+
             text-align: center;
+            padding: 0 6rem;
         }
-        p{
-            margin: 2rem 0;
+
+        p {
+            margin: 1rem 0;
             text-align: center;
             width: 100%;
-            padding: 0 10rem;
+
         }
-        
-        .theatre-image{
+
+        .theatre-image {
             display: block;
             margin-left: 3rem;
         }
 
-        .developers article{
+        .developers article {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            justify-content: space-between;
-            a, p{
+            justify-content: left;
+
+            a,
+            p {
                 margin: 1rem .5rem;
                 padding: 0;
                 width: fit-content;
             }
         }
-        
+
     }
+
+    .tmdb-respect {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+
+        @media (min-width: 55rem) {
+
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+
+    .developers {
+        margin: 3rem 0;
+    }
+
+    .developers li {
+        color: $primary-color;
+        list-style: circle;
+    }
+
 }
