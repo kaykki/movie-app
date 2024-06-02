@@ -14,10 +14,6 @@ header {
 	box-shadow: 0.1rem -0.02rem 0.5rem $primary-color;
 	z-index: 999;
 
-	h1 {
-		font-size: 1rem;
-	}
-
 	@media(min-width: 26.25em) {
 
 		padding: 1rem 2rem;
@@ -37,21 +33,4 @@ header {
 
 		padding: 1rem 10rem;
 	}
-}
-
-.logo {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	img {
-		width: 5rem;
-	}
-
-	 &:hover {
-		h1 {
-			color: $secondary-color;
-		}
-	 }
 }

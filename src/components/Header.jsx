@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Nav from './Nav';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import logo from '/assets/images/seenema-logo.svg'
 import Searchbar from './Searchbar';
-import { appTitle } from '../global/global';
+import Logo from './Logo';
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
@@ -41,15 +38,9 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={showNav ? 'show' : ''}>
-
-            <Link className="logo" to="/">
-                <img src={logo} alt="Seenema Logo"/>
-                <h1>{appTitle}</h1>
-            </Link>
-
+        <header className={showNav && 'show'}>
+            <Logo />
             {!isMobile && (<Searchbar />)}
-
             <button className="btn-main-nav"
                 onClick={toggleNav}>
                 <span className="hamburger-icon">
