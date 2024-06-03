@@ -12,7 +12,7 @@ import PageMovieInfo from '../pages/PageMovieInfo';
 
 function AppRouter() {
   return (
-    <BrowserRouter basename='/seenema'>
+    <BrowserRouter basename='/seenema/'>
       <div className="wrapper">
         <Header />
           <Routes>

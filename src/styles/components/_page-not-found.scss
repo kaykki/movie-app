@@ -1,7 +1,20 @@
+@use '../base/settings' as *;
+
 .page-not-found {
     height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+
+    a,
+    a:visited {
+        color: $secondary-color;
+    }
+
+    a:hover {
+        color: $primary-color;
+    }
 }
