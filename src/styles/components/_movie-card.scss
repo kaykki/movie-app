@@ -34,12 +34,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3rem;
-        width: 3rem;
+        height: 4rem;
+        width: 4rem;
         position: absolute;
         top: 1rem;
         right: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         color: $primary-color;
         background-color: $secondary-color;
@@ -53,12 +53,6 @@
 
         .movie-poster {
             height: 37.5rem;
-        }
-
-        .rating {
-            height: 4rem;
-            width: 4rem;
-            font-size: 1.5rem;
         }
     }
 }
