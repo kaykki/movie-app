@@ -15,13 +15,13 @@ function FavButton({ movie, remove, handleFavClick }) {
         <>
             {remove === true 
             ? 
-                <button className="btn-favourite" onClick={handleRemoveFav}>
+                <div className="btn-favourite" onClick={handleRemoveFav}>
                     <img src={removeFav} alt="remove from fav button" />
-                </button>
+                </div>
             :
-                <button className="btn-favourite" onClick={handleAddFav}>
+                <div className="btn-favourite" onClick={handleAddFav}>
                     <img src={addFav} alt="add to fav button" />
-                </button>} 
+                </div>} 
         </>
     );
     
