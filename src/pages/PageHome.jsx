@@ -24,7 +24,13 @@ const PageHome = () => {
 	useEffect(() => {
 		document.title = "Home | " + appTitle;
 		const fetchMovies = async () => {
-			setLoading(true);
+			// doesnt run the loader when load more button is clicked
+			if (currentPage > 1) {
+				setLoading(false);
+			} else {
+				setLoading(true);
+			}
+			
 			const response = await fetch(`${currentCategory.url}&page=${currentPage}`, {
 				headers: {
 					accept: 'application/json',
@@ -33,6 +39,7 @@ const PageHome = () => {
 			});
 
 			let data = await response.json();
+
 			if (currentPage > 1) {
 				setMovieList(movieList => ([...movieList, ...data.results.slice(0, 12)]));
 			} else {
