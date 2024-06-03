@@ -37,44 +37,46 @@ function HeroSlide() {
 
     return (
         <div className="box">
-            <Carousel
-                useKeyboardArrows={false}
-                showThumbs={false}
-                showStatus={false}
-                autoPlay
-                infiniteLoop
-                showIndicators
-                renderIndicator={(clickHandler, isSelected, index) => {
-                    return (
-                        <>
-                            {!isMobile && <li
-                            onClick={clickHandler}
-                            className={`indicator ${isSelected ? "active" : ""}`}
-                            key={index}
-                            role="button"
-                            />}
-                        </>
-                    );
-                }}>
-                {movieList.map((movie) => (
-                    <div className="slide" key={movie.id}>
-                        <div className="movie-infor">
-                            {!isMobile && <div className='rating'>
-                                <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
-                            </div>}
+            {movieList.length > 0 &&
+                <Carousel
+                    useKeyboardArrows={false}
+                    showThumbs={false}
+                    showStatus={false}
+                    autoPlay
+                    infiniteLoop
+                    showIndicators
+                    renderIndicator={(clickHandler, isSelected, index) => {
+                        return (
+                            <>
+                                {!isMobile && <li
+                                    onClick={clickHandler}
+                                    className={`indicator ${isSelected ? "active" : ""}`}
+                                    key={index}
+                                    role="button"
+                                />}
+                            </>
+                        );
+                    }}>
+                    {movieList.map((movie) => (
+                        <div className="slide" key={movie.id}>
+                            <div className="movie-infor">
+                                {!isMobile && <div className='rating'>
+                                    <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
+                                </div>}
 
-                            <h2 className="movie-title">{movie.title}</h2>
-                            <p className='release-date'>{movie.release_date}</p>
-                            {!isMobile && (
-                                <p className="movie-overview">{movie.overview}</p>
-                            )}
-                            <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
+                                <h2 className="movie-title">{movie.title}</h2>
+                                <p className='release-date'>{movie.release_date}</p>
+                                {!isMobile && (
+                                    <p className="movie-overview">{movie.overview}</p>
+                                )}
+                                <Link className='more-info-btn' to={`/movieinfo/${movie.id}`}>More Info</Link>
+                            </div>
+                            <div className='hero-overlay'></div>
+                            <img alt={movie.title} src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
                         </div>
-                        <div className='hero-overlay'></div>
-                        <img alt={movie.title} src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
-                    </div>
-                ))}
-            </Carousel>
+                    ))}
+                </Carousel>
+            }
         </div>
     )
 };
