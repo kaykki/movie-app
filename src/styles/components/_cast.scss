@@ -1,7 +1,8 @@
 @use '../base/settings' as *;
 
 .cast {
-    
+    padding: 2rem 0;
+
     @media (min-width: 43.75em) {
         padding: 2rem 1rem;
     }

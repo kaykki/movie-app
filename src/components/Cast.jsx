@@ -1,4 +1,4 @@
-import avatar from "../../public/assets/images/missing-cast.jpg";
+import avatar from "/assets/images/missing-cast.jpg";
 
 function Cast({ member }) {
 	return (
