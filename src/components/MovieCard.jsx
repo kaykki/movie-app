@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { addFav, deleteFav } from '../features/favs/favsSlice';
 import FavButton from './FavButton';
 import { Link } from 'react-router-dom';
-import missingPoster from '../images/missing-poster.png';
+import missingPoster from '/assets/images/missing-poster.png';
 
 function MovieCard({ movie, isFav }) {
 

@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { addFav, deleteFav } from '../features/favs/favsSlice';
 import React from 'react'
 import FavButton from './FavButton';
-import missingPoster from '../../public/assets/images/missing-poster.png'
+import missingPoster from '/assets/images/missing-poster.png'
 
 function InfoCard({ movie, isFav }) {
     const dispatch = useDispatch();
@@ -23,6 +23,7 @@ function InfoCard({ movie, isFav }) {
 
                 <div className='movie-description'>
                     <h2 className='movie-info-title'>{movie.title}</h2>
+
                     <div className='content-wrapper'>
                         <p className='release-date'>{movie.release_date}</p>
 
@@ -44,7 +45,7 @@ function InfoCard({ movie, isFav }) {
                     </div>
 
                     <article className='full-overview'>
-                        <h3>Overview</h3>
+                        <h3>Overview:</h3>
                         <p>{movie.overview}</p>
                     </article>
                 </div>
