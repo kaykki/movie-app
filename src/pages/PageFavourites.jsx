@@ -3,7 +3,7 @@ import MovieCard from '../components/MovieCard';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { appTitle } from '../global/global';
-import seenemaLogo from '../images/seenema-logo.svg';
+import seenemaLogo from '/seenema-favicon.svg';
 
 function PageFavourites() {
 
