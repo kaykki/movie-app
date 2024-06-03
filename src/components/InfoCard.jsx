@@ -1,9 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { addFav, deleteFav } from '../features/favs/favsSlice';
 import React from 'react'
 import FavButton from './FavButton';
-import missingPoster from  '../images/missing-poster.png'
+import missingPoster from '/assets/images/missing-poster.png'
 
 function InfoCard({ movie, isFav }) {
     const dispatch = useDispatch();
@@ -20,29 +19,33 @@ function InfoCard({ movie, isFav }) {
             <img className='info-backdrop' src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} alt={movie.title} />
 
             <section className='movie-info-text'>
-                <img className='info-poster' src={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}`: missingPoster} alt={movie.title} />
+                <img className='info-poster' src={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}` : missingPoster} alt={movie.title} />
 
-                <div>
+                <div className='movie-description'>
                     <h2 className='movie-info-title'>{movie.title}</h2>
-                    <p className='release-date'>{movie.release_date}</p>
 
-                    <ul className='genre-list'>
-                        {movie.genres.map(genre => (
-                            <li key={genre.id}>{genre.name}</li>
-                        ))}
-                    </ul>
+                    <div className='content-wrapper'>
+                        <p className='release-date'>{movie.release_date}</p>
 
-                    <div className='info-rating'>
-                    <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
+                        <ul className='genre-list'>
+                            {movie.genres.map(genre => (
+                                <li key={genre.id}>{genre.name}</li>
+                            ))}
+                        </ul>
                     </div>
 
-                    {isFav ?
-                        <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> :
-                        <FavButton movie={movie} handleFavClick={handleFavClick} />
-                    }
+                    <div className='content-wrapper'>
+                        <div className='info-rating'>
+                            <p>{movie.vote_average.toFixed(1) == 0 ? "NR" : movie.vote_average.toFixed(1)}</p>
+                        </div>
+                        {isFav ?
+                            <FavButton movie={movie} remove={true} handleFavClick={handleFavClick} /> :
+                            <FavButton movie={movie} handleFavClick={handleFavClick} />
+                        }
+                    </div>
 
                     <article className='full-overview'>
-                        <h3>Overview</h3>
+                        <h3>Overview:</h3>
                         <p>{movie.overview}</p>
                     </article>
                 </div>

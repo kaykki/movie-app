@@ -1,66 +1,87 @@
 @use '../base/settings' as *;
-.cast{
+
+.cast {
+    padding: 2rem 0;
+
+    @media (min-width: 43.75em) {
+        padding: 2rem 1rem;
+    }
+
     h2 {
         width: 100%;
         padding: 1rem;
-        @media(min-width: 43.75em){
+
+        @media(min-width: 43.75em) {
             font-size: 2rem;
         }
     }
 }
 
-.cast-card{
+.cast-card {
     padding: .5rem;
     margin: 0;
     width: 10rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+
     p {
         color: $primary-color;
     }
+
     @media (min-width: 26.25em) {
         width: 12.5rem;
     }
+
     @media (min-width: 43.75em) {
         cursor: pointer;
         position: relative;
     }
 }
 
-.non-slider-container{
+.cast-card:has(.cast-no-img) {
+    justify-content: flex-end;
+}
+
+.non-slider-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     @media (min-width: 43.75em) {
         display: none;
     }
 }
-.slider-container{
+
+.slider-container {
     display: none;
+    padding: 1rem 3rem;
+
     @media (min-width: 43.75em) {
         display: block;
     }
-    
+
 }
 
-@media(min-width: 43.75em){
-.cast-card .cast-no-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: translateY(23%);
-    margin: .25rem;
-    @media(min-width: 46.25em){
-        transform: translateY(24%);
-    }
-    @media(min-width: 70em){
-        transform: translateY(27%);
-    }
-  }
-  .cast-card{
-    width: 100%;
-  }
-}
+@media(min-width: 43.75em) {
+    .cast-card .cast-no-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(23%);
+        margin: .25rem;
 
+        @media(min-width: 46.25em) {
+            transform: translateY(24%);
+        }
+
+        @media(min-width: 70em) {
+            transform: translateY(27%);
+        }
+    }
+
+    .cast-card {
+        width: 100%;
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
-import missingPoster from '../images/missing-poster.png'
+import missingPoster from '/assets/images/missing-poster.png';
 
 function Searchbar() {
 

@@ -7,7 +7,6 @@ import InfoCard from '../components/InfoCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import avatar from "../images/avatar.jpg";
 import Cast from '../components/Cast';
 
 function MovieInfo() {
@@ -92,7 +91,7 @@ function MovieInfo() {
     return (
         <div>
             {movie && movieCast ? (
-                <div>
+                <>
                     <InfoCard
                         key={movie.id}
                         movie={movie}
@@ -102,21 +101,21 @@ function MovieInfo() {
                         <h2>Cast</h2>
                         {isMobile ? (
                             <div className='non-slider-container'>
-                                {movieCast.cast.slice(0, 8).map(member => (
-                                    <Cast member={member} avatar={avatar} key={member.id} />
+                                {movieCast.cast.slice(0, 6).map(member => (
+                                    <Cast member={member} key={member.id} />
                                 ))}
                             </div>
                         ) : (
                             <div className='slider-container'>
                                 <Slider {...settings}>
                                     {movieCast.cast.slice(0, 10).map(member => (
-                                        <Cast member={member} avatar={avatar} key={member.id} />
+                                        <Cast member={member} key={member.id} />
                                     ))}
                                 </Slider>
                             </div>
                         )}
                     </section>
-                </div>
+                </>
             ) : (
                 <p>No movie to display.</p>
             )}
