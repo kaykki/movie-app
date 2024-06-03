@@ -20,7 +20,7 @@ function PageFavourites() {
                 {favs.length < 1 ? 
                     <div className='no-favs'>
                         <img src={seenemaLogo} alt="seenema logo"/>
-                        <p>We didn't see any favourite movies? Look for some <Link to="/">here!</Link></p>
+                        <p>No favourite movies? Look for some <Link to="/">here!</Link></p>
                     </div>
                 : 
                     <div className='fav-movies'>

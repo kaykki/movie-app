@@ -9,7 +9,12 @@
     align-items: center;
     gap: 1rem;
 
+    a,
     a:visited {
+        color: $secondary-color;
+    }
+
+    a:hover {
         color: $primary-color;
     }
 }
