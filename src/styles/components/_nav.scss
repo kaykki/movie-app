@@ -32,7 +32,6 @@
     z-index: 99;
 
     ul {
-        margin: 4.25rem 0 0 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -47,7 +46,6 @@
         }
 
         @media (min-width: 65em) {
-            margin: 0;
             flex-direction: row;
         }
     }
@@ -108,15 +106,13 @@
 
 .show .main-nav {
     visibility: visible;
-    height: 16rem;
+    height: 180px;
     width: 100%;
     position: absolute;
-    padding: 1rem;
     top: 0;
     right: 0;
     left: 0;
     transition: visibility 0s, height 0.3s;
-    box-shadow: 0.1rem 0.05rem 0.5rem $primary-color;
 
     @media(min-width: 65em) {
         transition: none;
