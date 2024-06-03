@@ -9,12 +9,16 @@
     font-size: 1.25rem;
     padding: 1rem 2.5rem;
 
+    &:visited {
+        color: $background-color;
+    }
+
+    &:hover {
+        color: $secondary-color;
+    }
+
     @media (min-width: 55em) {
         font-size: 2rem;
         padding: 1.5rem 4rem;
     }
-}
-
-.load-more-btn:hover {
-    color: $secondary-color;
 }
